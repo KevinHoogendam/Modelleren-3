@@ -8,18 +8,9 @@ namespace Goudkoorts
 {
     class BackSwitchSpace : Space
     {
-        private Space switchUp;
-        private Space switchDown;
+        public Space switchUp;
+        public Space switchDown;
         private bool switchIsUp;
-
-        public BackSwitchSpace(Space switchUp, Space switchDown, bool switchIsUp, Space next)
-        {
-            this.switchUp = switchUp;
-            this.switchDown = switchDown;
-            this.switchIsUp = switchIsUp;
-            this.next = next;
-            SwitchCase();
-        }
 
         public void Switch()
         {

@@ -1,1 +1,2 @@
 c:\users\khoog\documents\visual studio 2013\Projects\Goudkoorts\Goudkoorts\bin\Debug\Goudkoorts.exe.config
+C:\Users\Kevin\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\bin\Debug\Goudkoorts.exe.config
