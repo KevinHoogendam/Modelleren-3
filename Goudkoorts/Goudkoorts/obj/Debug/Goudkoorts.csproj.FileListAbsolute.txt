@@ -5,3 +5,9 @@ C:\Users\Kevin\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\bin\Debug\Gou
 C:\Users\Kevin\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.csprojResolveAssemblyReference.cache
 C:\Users\Kevin\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.exe
 C:\Users\Kevin\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.pdb
+C:\Users\khoog\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\bin\Debug\Goudkoorts.exe.config
+C:\Users\khoog\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.exe
+C:\Users\khoog\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.pdb
+C:\Users\khoog\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\bin\Debug\Goudkoorts.exe
+C:\Users\khoog\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\bin\Debug\Goudkoorts.pdb
+C:\Users\khoog\Documents\GitHub\Modelleren-3\Goudkoorts\Goudkoorts\obj\Debug\Goudkoorts.csprojResolveAssemblyReference.cache

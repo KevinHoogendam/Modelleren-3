@@ -12,6 +12,7 @@ namespace Goudkoorts
         {
             Board board = new Board();
             board.CreateBoard();
+            Console.ReadKey();
         }
     }
 }
