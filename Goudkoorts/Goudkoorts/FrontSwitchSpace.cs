@@ -34,7 +34,7 @@ namespace Goudkoorts
                     break;
                 case false:
                     setNext(switchDown);
-                    symbol = @":" + switchNumber + "/";
+                    symbol = ":" + switchNumber + @"\";
                     break;
             }
         }

@@ -63,6 +63,12 @@ namespace Goudkoorts
                         current.next = tempQuay;
                         current = current.next;
                         break;
+                    case 26:
+                        EndSpace tempEnd = new EndSpace();
+                        tempEnd.previous = current;
+                        current.next = tempEnd;
+                        current = current.next;
+                        break;
                     default:
                         if (!frontSwitchMade)
                         {
@@ -105,6 +111,12 @@ namespace Goudkoorts
                         QuaySpace tempQuay = new QuaySpace();
                         tempQuay.previous = current;
                         current.next = tempQuay;
+                        current = current.next;
+                        break;
+                    case 23:
+                        EndSpace tempEnd = new EndSpace();
+                        tempEnd.previous = current;
+                        current.next = tempEnd;
                         current = current.next;
                         break;
                     default:
@@ -185,76 +197,50 @@ namespace Goudkoorts
                         break;
                 }
             }
-            
-
-
 
             boardTest();
         }
         private void boardTest()
         {
-            backSwitchA.Switch();
-            backSwitchB.Switch();
-            backSwitchC.Switch();
-            frontSwitchA.Switch();
-            frontSwitchB.Switch();
-            Console.WriteLine("Lijst A:");
-            Space current = startA;
-            while (current != null)
-            {
-                Console.Write(current.symbol);
-                current = current.next;
-            }
-            Console.WriteLine("");
-            Console.WriteLine("Lijst B:");
-            current = startB;
-            while (current != null)
-            {
-                Console.Write(current.symbol);
-                current = current.next;
-            }
-            Console.WriteLine("");
-            Console.WriteLine("Lijst C:");
-            current = startC;
-            while (current != null)
-            {
-                Console.Write(current.symbol);
-                current = current.next;
-            }
+            SwitchAll();
+            ShowList(startA);
+            ShowList(startB);
+            ShowList(startC);
 
-            Console.WriteLine("");
-            Console.WriteLine("Switch");
-            Console.WriteLine("");
+            SwitchAll();
+            ShowList(startA);
+            ShowList(startB);
+            ShowList(startC);
 
-            backSwitchA.Switch();
-            backSwitchB.Switch();
-            backSwitchC.Switch();
-            frontSwitchA.Switch();
-            frontSwitchB.Switch();
-            Console.WriteLine("Lijst A:");
-            current = startA;
-            while (current.next != null)
-            {
-                Console.Write(current.symbol);
-                current = current.next;
-            }
-            Console.WriteLine("");
-            Console.WriteLine("Lijst B:");
-            current = startB;
-            while (current.next != null)
-            {
-                Console.Write(current.symbol);
-                current = current.next;
-            }
-            Console.WriteLine("");
-            Console.WriteLine("Lijst C:");
-            current = startC;
-            while (current.next != null)
-            {
-                Console.Write(current.symbol);
-                current = current.next;
-            }
+            SwitchAll();
+            ShowList(startA);
+            ShowList(startB);
+            ShowList(startC);
         }
+
+        private void SwitchAll()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Switch all!");
+            backSwitchA.Switch();
+            backSwitchB.Switch();
+            backSwitchC.Switch();
+            frontSwitchA.Switch();
+            frontSwitchB.Switch();
+        }
+
+        private void ShowList(Space start)
+        {
+            Console.WriteLine("");
+            Space current = start;
+            while (current != null)
+            {
+                Console.Write(current.symbol);
+                current = current.next;
+            }
+            Console.WriteLine("");
+        }
+
         private Space addFrontSwitch(FrontSwitchSpace frontSwitch, bool isUp, Space current)
         {
             if(isUp)
