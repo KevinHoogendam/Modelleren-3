@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts
 {
-    class QuaySpace : Space
+    class RailSpace : Space
     {
-        public QuaySpace()
+        public RailSpace()
         {
-            this.symbol = ":K:";
+            this.symbol = "_";
         }
     }
 }

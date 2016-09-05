@@ -10,7 +10,13 @@ namespace Goudkoorts
     {
         public Space switchUp;
         public Space switchDown;
+        private String switchNumber;
         private bool switchIsUp;
+
+        public FrontSwitchSpace(String point)
+        {
+            this.switchNumber = point;
+        }
 
         public void Switch()
         {
@@ -24,9 +30,11 @@ namespace Goudkoorts
             {
                 case true:
                     setNext(switchUp);
+                    symbol = ":" + switchNumber + "/";
                     break;
                 case false:
                     setNext(switchDown);
+                    symbol = @":" + switchNumber + "/";
                     break;
             }
         }

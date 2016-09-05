@@ -10,5 +10,7 @@ namespace Goudkoorts
     {
         public Space next;
         public Space previous;
+
+        public String symbol;
     }
 }

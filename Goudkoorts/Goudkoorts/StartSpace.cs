@@ -8,5 +8,9 @@ namespace Goudkoorts
 {
     class StartSpace : Space
     {
+        public StartSpace(String start)
+        {
+            this.symbol = start + ":_";
+        }
     }
 }

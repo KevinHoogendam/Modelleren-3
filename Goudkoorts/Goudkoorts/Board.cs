@@ -20,14 +20,14 @@ namespace Goudkoorts
 
         public Board()
         {
-            startA = new StartSpace();
-            startB = new StartSpace();
-            startC = new StartSpace();
-            backSwitchA = new BackSwitchSpace();
-            backSwitchB = new BackSwitchSpace();
-            backSwitchC = new BackSwitchSpace();
-            frontSwitchA = new FrontSwitchSpace();
-            frontSwitchB = new FrontSwitchSpace();
+            startA = new StartSpace("A");
+            startB = new StartSpace("B");
+            startC = new StartSpace("C");
+            backSwitchA = new BackSwitchSpace("A");
+            backSwitchB = new BackSwitchSpace("C");
+            backSwitchC = new BackSwitchSpace("D");
+            frontSwitchA = new FrontSwitchSpace("B");
+            frontSwitchB = new FrontSwitchSpace("E");
         }
 
         public void CreateBoard()
@@ -66,7 +66,7 @@ namespace Goudkoorts
                     default:
                         if (!frontSwitchMade)
                         {
-                            Space temp = new Space();
+                            RailSpace temp = new RailSpace();
                             temp.previous = current;
                             current.next = temp;
                             current = current.next;
@@ -110,7 +110,7 @@ namespace Goudkoorts
                     default:
                         if (!frontSwitchMade)
                         {
-                        Space temp = new Space();
+                        RailSpace temp = new RailSpace();
                         temp.previous = current;
                         current.next = temp;
                         current = current.next;
@@ -173,7 +173,7 @@ namespace Goudkoorts
                     default:
                         if (!frontSwitchMade)
                         {
-                            Space temp = new Space();
+                            RailSpace temp = new RailSpace();
                             temp.previous = current;
                             current.next = temp;
                             current = current.next;
@@ -202,7 +202,7 @@ namespace Goudkoorts
             Space current = startA;
             while (current != null)
             {
-                Console.WriteLine(current);
+                Console.Write(current.symbol);
                 current = current.next;
             }
             Console.WriteLine("");
@@ -210,7 +210,7 @@ namespace Goudkoorts
             current = startB;
             while (current != null)
             {
-                Console.WriteLine(current);
+                Console.Write(current.symbol);
                 current = current.next;
             }
             Console.WriteLine("");
@@ -218,7 +218,7 @@ namespace Goudkoorts
             current = startC;
             while (current != null)
             {
-                Console.WriteLine(current);
+                Console.Write(current.symbol);
                 current = current.next;
             }
 
@@ -235,7 +235,7 @@ namespace Goudkoorts
             current = startA;
             while (current.next != null)
             {
-                Console.WriteLine(current);
+                Console.Write(current.symbol);
                 current = current.next;
             }
             Console.WriteLine("");
@@ -243,7 +243,7 @@ namespace Goudkoorts
             current = startB;
             while (current.next != null)
             {
-                Console.WriteLine(current);
+                Console.Write(current.symbol);
                 current = current.next;
             }
             Console.WriteLine("");
@@ -251,7 +251,7 @@ namespace Goudkoorts
             current = startC;
             while (current.next != null)
             {
-                Console.WriteLine(current);
+                Console.Write(current.symbol);
                 current = current.next;
             }
         }
@@ -259,12 +259,12 @@ namespace Goudkoorts
         {
             if(isUp)
             {
-                frontSwitch.switchUp = new Space();
+                frontSwitch.switchUp = new RailSpace();
                 current = frontSwitch.switchUp;
             }
             else
             {
-                frontSwitch.switchDown = new Space();
+                frontSwitch.switchDown = new RailSpace();
                 current = frontSwitch.switchDown;
             }
             current.previous = frontSwitch;
