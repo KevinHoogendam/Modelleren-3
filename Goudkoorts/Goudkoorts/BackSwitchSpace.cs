@@ -11,7 +11,7 @@ namespace Goudkoorts
         public Space switchUp;
         public Space switchDown;
         private String switchNumber;
-        private bool switchIsUp;
+        public bool switchIsUp;
 
         public BackSwitchSpace(String point)
         {

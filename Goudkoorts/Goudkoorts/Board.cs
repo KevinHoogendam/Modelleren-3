@@ -197,8 +197,7 @@ namespace Goudkoorts
                         break;
                 }
             }
-
-            boardTest();
+            SwitchAll();
         }
         private void boardTest()
         {
@@ -220,8 +219,6 @@ namespace Goudkoorts
 
         private void SwitchAll()
         {
-            Console.WriteLine("");
-            Console.WriteLine("Switch all!");
             backSwitchA.Switch();
             backSwitchB.Switch();
             backSwitchC.Switch();
