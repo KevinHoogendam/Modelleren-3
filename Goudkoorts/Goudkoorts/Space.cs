@@ -11,8 +11,22 @@ namespace Goudkoorts
         public Space next;
         public Space previous;
 
-        //public bool isOccupied;
+        public Train train;
 
         public String symbol;
+
+        public string GetSymbol()
+        {
+            String currentSymbol;
+            if(train == null)
+            {
+                currentSymbol = symbol;
+            }
+            else
+            {
+                currentSymbol = train.symbol;
+            }
+            return currentSymbol;
+        }
     }
 }

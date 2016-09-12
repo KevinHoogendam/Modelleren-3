@@ -148,6 +148,7 @@ namespace Goudkoorts
             yield return () => Console.Beep(660, 500);
             yield return () => Console.Beep(880, 1000);
             yield return () => Console.Beep(838, 2000);
+            yield return () => Thread.Sleep(500);
         }
 
         private void PlayThread()

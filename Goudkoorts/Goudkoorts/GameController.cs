@@ -13,20 +13,23 @@ namespace Goudkoorts
         public BoardController boardController;
         public GameInputView gameInputView;
         public MusicController musicController;
+        public TrainController trainController;
         public bool gameOver;
         public GameController()
         {
             boardController = new BoardController();
             gameInputView = new GameInputView(this);
             musicController = new MusicController();
+            trainController = new TrainController(this);
             gameOver = false;
         }
 
         public void StartGame()
         {
             musicController.Play();
+            trainController.InitThread();
             boardController.DrawBoard();
-            gameInputView.GetUserSwitchInput();
+            gameInputView.GetUserSwitchInput(); // final
 
         }
 

@@ -55,6 +55,8 @@
     <Compile Include="Space.cs" />
     <Compile Include="StartSpace.cs" />
     <Compile Include="FrontSwitchSpace.cs" />
+    <Compile Include="Train.cs" />
+    <Compile Include="TrainController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

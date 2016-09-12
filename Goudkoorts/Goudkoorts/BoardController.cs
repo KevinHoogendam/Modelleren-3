@@ -18,6 +18,7 @@ namespace Goudkoorts
 
         public void DrawBoard()
         {
+            Console.Clear();
             bool frontA = board.frontSwitchA.switchIsUp;
             bool frontB = board.frontSwitchB.switchIsUp;
             Space current;
@@ -35,7 +36,7 @@ namespace Goudkoorts
             }
             for (int reverse = 27; reverse > 15; reverse--)
             {
-                Console.Write(current.symbol + "  ");
+                Console.Write(current.GetSymbol() + "  ");
                 current = current.previous;
             }
             Console.WriteLine("");
@@ -43,13 +44,13 @@ namespace Goudkoorts
             //regel 2
             Console.Write("                                         ");
             current = current.previous;
-            Console.WriteLine(current.symbol);
+            Console.WriteLine(current.GetSymbol());
 
             //regel 3
             current = board.startA;
             for (int i = 0; i < 3; i++)
             {
-                Console.Write(current.symbol + "  ");
+                Console.Write(current.GetSymbol() + "  ");
                 current = current.next;
             }
             Console.Write("         ");
@@ -57,7 +58,7 @@ namespace Goudkoorts
             {
                 if (i >= 3 && i <= 7)
                 {
-                    Console.Write(current.symbol + "  ");
+                    Console.Write(current.GetSymbol() + "  ");
                 }
                 current = current.next;
             }
@@ -66,7 +67,7 @@ namespace Goudkoorts
             {
                 if (i == 3)
                 {
-                    Console.Write(current.symbol + "  ");
+                    Console.Write(current.GetSymbol() + "  ");
                 }
                 current = current.next;
             }
@@ -79,7 +80,7 @@ namespace Goudkoorts
             {
                 if (i >= 3 && i <= 5)
                 {
-                    Console.Write(current.symbol + " ");
+                    Console.Write(current.GetSymbol() + " ");
                 }
                 current = current.next;
             }
@@ -88,7 +89,7 @@ namespace Goudkoorts
             {
                 if (i >= 5 && i <= 7)
                 {
-                    Console.Write(current.symbol + " ");
+                    Console.Write(current.GetSymbol() + " ");
                 }
                 current = current.next;
             }
@@ -109,7 +110,7 @@ namespace Goudkoorts
             current = board.startB;
             for (int i = 0; i < 3; i++)
             {
-                Console.Write(current.symbol + "  ");
+                Console.Write(current.GetSymbol() + "  ");
                 current = current.next;
             }
             Console.Write("       ");
@@ -117,7 +118,7 @@ namespace Goudkoorts
             {
                 if (i >= 3 && i <= 4)
                 {
-                    Console.Write(current.symbol + "  ");
+                    Console.Write(current.GetSymbol() + "  ");
                 }
                 current = current.next;
             }
@@ -127,7 +128,7 @@ namespace Goudkoorts
             {
                 if (i >= 3 && i <= 4)
                 {
-                    Console.Write(current.symbol + "  ");
+                    Console.Write(current.GetSymbol() + "  ");
                 }
                 current = current.next;
             }
@@ -141,7 +142,7 @@ namespace Goudkoorts
             {
                 if (i >= 8 && i <= 10)
                 {
-                    Console.Write(current.symbol + " ");
+                    Console.Write(current.GetSymbol() + " ");
                 }
                 current = current.next;
             }
@@ -158,7 +159,7 @@ namespace Goudkoorts
             current = board.startC;
             for (int i = 0; i < 6; i++)
             {
-                Console.Write(current.symbol + "  ");
+                Console.Write(current.GetSymbol() + "  ");
                 current = current.next;
             }
 
@@ -167,7 +168,7 @@ namespace Goudkoorts
             {
                 if (i >= 3 && i <= 5)
                 {
-                    Console.Write(current.symbol + "  ");
+                    Console.Write(current.GetSymbol() + "  ");
                 }
                 current = current.next;
             }
@@ -176,7 +177,7 @@ namespace Goudkoorts
             //regel 8
             Console.Write("                                       ");
             current = current.next;
-            Console.Write(current.symbol);
+            Console.Write(current.GetSymbol());
             Console.WriteLine("");
 
             //regel 9
@@ -187,7 +188,7 @@ namespace Goudkoorts
 
             for (int reverse = 0; reverse < 12; reverse++)
             {
-                Console.Write(current.symbol + "  ");
+                Console.Write(current.GetSymbol() + "  ");
                 current = current.previous;
             }
             Console.WriteLine("");
