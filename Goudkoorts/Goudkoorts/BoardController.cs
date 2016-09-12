@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts
 {
-    class BoardView
+    class BoardController
     {
         public Board board;
 
-        public BoardView()
+        public BoardController()
         {
             board = new Board();
             board.CreateBoard();
@@ -25,7 +25,8 @@ namespace Goudkoorts
             //regel 1
             if (!board.frontSwitchA.switchIsUp)
             {
-                board.frontSwitchA.Switch();
+                board.frontSwitchA.switchIsUp = true;
+                board.frontSwitchA.next = board.frontSwitchA.switchUp;
             }
             current = board.startA;
             for (int i = 0; i < 27; i++)
@@ -96,11 +97,13 @@ namespace Goudkoorts
             //regel 5
             if (board.frontSwitchA.switchIsUp)
             {
-                board.frontSwitchA.Switch();
+                board.frontSwitchA.switchIsUp = false;
+                board.frontSwitchA.next = board.frontSwitchA.switchDown;
             }
             if (!board.frontSwitchB.switchIsUp)
             {
-                board.frontSwitchB.Switch();
+                board.frontSwitchB.switchIsUp = true;
+                board.frontSwitchB.next = board.frontSwitchB.switchUp;
             }
 
             current = board.startB;
@@ -148,7 +151,8 @@ namespace Goudkoorts
 
             if (board.frontSwitchB.switchIsUp)
             {
-                board.frontSwitchB.Switch();
+                board.frontSwitchB.switchIsUp = false;
+                board.frontSwitchB.next = board.frontSwitchB.switchDown;
             }
             Console.Write("    ");
             current = board.startC;
