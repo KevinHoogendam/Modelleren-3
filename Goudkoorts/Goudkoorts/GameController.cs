@@ -3,25 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+
 
 namespace Goudkoorts
 {
     class GameController
     {
-        public BoardController boardView;
+        public BoardController boardController;
         public GameInputView gameInputView;
+        public MusicController musicController;
         public bool gameOver;
         public GameController()
         {
-            boardView = new BoardController();
+            boardController = new BoardController();
             gameInputView = new GameInputView(this);
+            musicController = new MusicController();
             gameOver = false;
         }
 
         public void StartGame()
         {
-            boardView.DrawBoard();
+            musicController.Play();
+            boardController.DrawBoard();
             gameInputView.GetUserSwitchInput();
+
         }
 
         public bool SwitchByInput(Char input)
@@ -31,23 +37,23 @@ namespace Goudkoorts
             switch (input)
             {
                 case 'a':
-                    boardView.board.backSwitchA.Switch();
+                    boardController.board.backSwitchA.Switch();
                     succes = true;
                     break;
                 case 'b':
-                    boardView.board.frontSwitchA.Switch();
+                    boardController.board.frontSwitchA.Switch();
                     succes = true;
                     break;
                 case 'c':
-                    boardView.board.backSwitchB.Switch();
+                    boardController.board.backSwitchB.Switch();
                     succes = true;
                     break;
                 case 'd':
-                    boardView.board.backSwitchC.Switch();
+                    boardController.board.backSwitchC.Switch();
                     succes = true;
                     break;
                 case 'e':
-                    boardView.board.frontSwitchB.Switch();
+                    boardController.board.frontSwitchB.Switch();
                     succes = true;
                     break;
             }
@@ -55,8 +61,7 @@ namespace Goudkoorts
             if(succes)
             {
                 Console.Clear();
-                boardView.DrawBoard();
-                Console.Beep(1000,2);
+                boardController.DrawBoard();
             }
 
             return succes;
