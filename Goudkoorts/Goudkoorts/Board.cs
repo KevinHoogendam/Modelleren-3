@@ -18,6 +18,9 @@ namespace Goudkoorts
         public FrontSwitchSpace frontSwitchA;
         public FrontSwitchSpace frontSwitchB;
 
+        public EndSpace endTop;
+        public EndSpace endBottom;
+
         public Board()
         {
             startA = new StartSpace("A");
@@ -28,6 +31,8 @@ namespace Goudkoorts
             backSwitchC = new BackSwitchSpace("D");
             frontSwitchA = new FrontSwitchSpace("B");
             frontSwitchB = new FrontSwitchSpace("E");
+            endTop = new EndSpace();
+            endBottom = new EndSpace();
         }
 
         public void CreateBoard()
@@ -64,9 +69,8 @@ namespace Goudkoorts
                         current = current.next;
                         break;
                     case 26:
-                        EndSpace tempEnd = new EndSpace();
-                        tempEnd.previous = current;
-                        current.next = tempEnd;
+                        endTop.previous = current;
+                        current.next = endTop;
                         current = current.next;
                         break;
                     default:
@@ -114,9 +118,8 @@ namespace Goudkoorts
                         current = current.next;
                         break;
                     case 23:
-                        EndSpace tempEnd = new EndSpace();
-                        tempEnd.previous = current;
-                        current.next = tempEnd;
+                        endBottom.previous = current;
+                        current.next = endBottom;
                         current = current.next;
                         break;
                     default:

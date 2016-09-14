@@ -31,7 +31,7 @@ namespace Goudkoorts
             {
                 working = true;
                 //MoveBoats();//TODO: BoatList implementeren
-                //MoveCarts();
+                MoveTrains();
                 if (counter % 3 == 0)
                 {
                     GenerateNewTrain();
@@ -49,6 +49,96 @@ namespace Goudkoorts
                 }
             }
             thread.Abort();
+        }
+
+        private void MoveTrains()
+        {
+            Space current;
+            bool backA = gameController.boardController.board.backSwitchA.switchIsUp;
+            bool backB = gameController.boardController.board.backSwitchB.switchIsUp;
+            bool backC = gameController.boardController.board.backSwitchC.switchIsUp;
+
+            //End naar A
+            current = gameController.boardController.board.endTop;
+            bool noPre = false;
+            while(!noPre)
+            {
+
+                if(current.train != null && current == current.next.previous)
+                {
+                    if(current.next.train == null)
+                    {
+                        current.next.train = current.train;
+                        current.train = null;
+                    }
+                    else
+                    {
+                        current.train = null;
+                        current.next.train.symbol = "#";
+                    }
+                }
+                if (current.previous != null)
+                {
+                    if (!backA)
+                    {
+                        gameController.boardController.board.backSwitchA.Switch();
+                    }
+                    if (!backB)
+                    {
+                        gameController.boardController.board.backSwitchB.Switch();
+                    }
+                    current = current.previous;
+                    if (!backA)
+                    {
+                        gameController.boardController.board.backSwitchA.Switch();
+                    }
+                    if (!backB)
+                    {
+                        gameController.boardController.board.backSwitchB.Switch();
+                    }
+                }
+                else
+                {
+                    noPre = true;
+                }
+            }
+
+            //End naar C
+            current = gameController.boardController.board.endBottom;
+            noPre = false;
+            while (!noPre)
+            {
+
+                if (current.train != null && current == current.next.previous)
+                {
+                    if (current.next.train == null)
+                    {
+                        current.next.train = current.train;
+                        current.train = null;
+                    }
+                    else
+                    {
+                        current.train = null;
+                        current.next.train.symbol = "#";
+                    }
+                }
+                if (current.previous != null)
+                {
+                    if (!backC)
+                    {
+                        gameController.boardController.board.backSwitchC.Switch();
+                    }
+                    current = current.previous;
+                    if (!backC)
+                    {
+                        gameController.boardController.board.backSwitchC.Switch();
+                    }
+                }
+                else
+                {
+                    noPre = true;
+                }
+            }
         }
 
         private void GenerateNewTrain()
