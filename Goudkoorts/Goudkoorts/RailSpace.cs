@@ -8,9 +8,9 @@ namespace Goudkoorts
 {
     class RailSpace : Space
     {
-        public RailSpace()
+        public RailSpace(String symbol)
         {
-            this.symbol = "_";
+            this.symbol = symbol;
         }
     }
 }

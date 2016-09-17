@@ -14,7 +14,7 @@ namespace Goudkoorts
         public Train()
         {
             isFull = true;
-            this.symbol = "[]";
+            this.symbol = "#";
         }
     }
 }

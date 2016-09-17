@@ -74,7 +74,8 @@ namespace Goudkoorts
                     else
                     {
                         current.train = null;
-                        current.next.train.symbol = "#";
+                        current.next.train.symbol = "X";
+                       // gameController.gameOver = true;
                     }
                 }
                 if (current.previous != null)
@@ -120,6 +121,54 @@ namespace Goudkoorts
                     {
                         current.train = null;
                         current.next.train.symbol = "#";
+                        //gameController.gameOver = true;
+                    }
+                }
+                if (current.previous != null)
+                {
+                    if (backC)
+                    {
+                        gameController.boardController.board.backSwitchC.Switch();
+                    }
+                    current = current.previous;
+                    if (backC)
+                    {
+                        gameController.boardController.board.backSwitchC.Switch();
+                    }
+                }
+                else
+                {
+                    noPre = true;
+                }
+            }
+            //switch C naar begin B
+            current = gameController.boardController.board.backSwitchB.switchDown;
+            noPre = false;
+            bool checkSpace = true;
+            while (!noPre)
+            {
+                if (current == gameController.boardController.board.frontSwitchB || current == gameController.boardController.board.frontSwitchA)
+                {
+                    checkSpace = false;
+                }
+
+                if (current == gameController.boardController.board.backSwitchC.switchUp || current == gameController.boardController.board.backSwitchA.switchDown)
+                {
+                    checkSpace = true;
+                }
+
+                if (current.train != null && current == current.next.previous && checkSpace)
+                {
+                    if (current.next.train == null)
+                    {
+                        current.next.train = current.train;
+                        current.train = null;
+                    }
+                    else
+                    {
+                        current.train = null;
+                        current.next.train.symbol = "X";
+                        //gameController.gameOver = true;
                     }
                 }
                 if (current.previous != null)
@@ -128,10 +177,18 @@ namespace Goudkoorts
                     {
                         gameController.boardController.board.backSwitchC.Switch();
                     }
+                    if (backA)
+                    {
+                        gameController.boardController.board.backSwitchA.Switch();
+                    }
                     current = current.previous;
                     if (!backC)
                     {
                         gameController.boardController.board.backSwitchC.Switch();
+                    }
+                    if (backA)
+                    {
+                        gameController.boardController.board.backSwitchA.Switch();
                     }
                 }
                 else
@@ -161,9 +218,9 @@ namespace Goudkoorts
 
         public void Countdown()
         {
-            int counter = 5;
-            int timer = 5000; //- game.player.Score;
-            timer = timer / 5;
+            int counter = 3;
+            int timer = 3000; //- game.player.Score;
+            timer = timer / 3;
 
             while (counter > 0)
             {

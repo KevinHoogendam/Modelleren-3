@@ -43,7 +43,6 @@ namespace Goudkoorts
 
             //regel 2
             Console.Write("                                         ");
-            current = current.previous;
             Console.WriteLine(current.GetSymbol());
 
             //regel 3
@@ -176,7 +175,6 @@ namespace Goudkoorts
 
             //regel 8
             Console.Write("                                       ");
-            current = current.next;
             Console.Write(current.GetSymbol());
             Console.WriteLine("");
 

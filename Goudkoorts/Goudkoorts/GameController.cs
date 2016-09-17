@@ -28,6 +28,7 @@ namespace Goudkoorts
         {
             musicController.Play();
             trainController.InitThread();
+           //boardController.DrawBoard();
             gameInputView.GetUserSwitchInput(); // final
 
         }

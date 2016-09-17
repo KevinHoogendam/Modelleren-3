@@ -41,6 +41,7 @@ namespace Goudkoorts
             bool frontSwitchMade = false;
             //LijstA
             current = startA;
+            int counter = 1;
             for(int i = 0; i < 27; i++)
             {
                 switch (i)
@@ -53,7 +54,7 @@ namespace Goudkoorts
                     case 4:
                         current.next = frontSwitchA;
                         current = current.next;
-                        current.next = addFrontSwitch(frontSwitchA, true, current);
+                        current.next = addFrontSwitch(frontSwitchA, true, counter);
                         current = current.next;
                         frontSwitchMade = true;
                         break;
@@ -76,7 +77,7 @@ namespace Goudkoorts
                     default:
                         if (!frontSwitchMade)
                         {
-                            RailSpace temp = new RailSpace();
+                            RailSpace temp = new RailSpace(counter.ToString());
                             temp.previous = current;
                             current.next = temp;
                             current = current.next;
@@ -86,7 +87,9 @@ namespace Goudkoorts
                             frontSwitchMade = false;
                         }
                         break;
+                      
                 }
+                counter++;
             }
             //Lijst C
             current = startC;
@@ -106,7 +109,7 @@ namespace Goudkoorts
                         }
                         current.next = frontSwitchB;
                         current = current.next;
-                        current.next = addFrontSwitch(frontSwitchB, false, current);
+                        current.next = addFrontSwitch(frontSwitchB, false, counter);
                         current = current.next;
 
                         frontSwitchMade = true;
@@ -125,7 +128,7 @@ namespace Goudkoorts
                     default:
                         if (!frontSwitchMade)
                         {
-                        RailSpace temp = new RailSpace();
+                            RailSpace temp = new RailSpace(counter.ToString());
                         temp.previous = current;
                         current.next = temp;
                         current = current.next;
@@ -136,6 +139,7 @@ namespace Goudkoorts
                          }
                         break;
                 }
+                counter++;
 
             }
             //Lijst B
@@ -156,7 +160,7 @@ namespace Goudkoorts
                         }
                         current.next = frontSwitchA;
                         current = current.next;
-                        current.next = addFrontSwitch(frontSwitchA, false, current);
+                        current.next = addFrontSwitch(frontSwitchA, false, counter);
                         current = current.next;
                         frontSwitchMade = true;
                         break;
@@ -172,7 +176,7 @@ namespace Goudkoorts
                         }
                         current.next = frontSwitchB;
                         current = current.next;
-                        current.next = addFrontSwitch(frontSwitchB, true, current);
+                        current.next = addFrontSwitch(frontSwitchB, true, counter);
                         current = current.next;
                         frontSwitchMade = true;
                         break;
@@ -188,7 +192,7 @@ namespace Goudkoorts
                     default:
                         if (!frontSwitchMade)
                         {
-                            RailSpace temp = new RailSpace();
+                            RailSpace temp = new RailSpace(counter.ToString());
                             temp.previous = current;
                             current.next = temp;
                             current = current.next;
@@ -199,6 +203,7 @@ namespace Goudkoorts
                         }
                         break;
                 }
+                counter++;
             }
             SwitchAll();
         }
@@ -241,16 +246,17 @@ namespace Goudkoorts
             Console.WriteLine("");
         }
 
-        private Space addFrontSwitch(FrontSwitchSpace frontSwitch, bool isUp, Space current)
+        private Space addFrontSwitch(FrontSwitchSpace frontSwitch, bool isUp, int c)
         {
+            Space current;
             if(isUp)
             {
-                frontSwitch.switchUp = new RailSpace();
+                frontSwitch.switchUp = new RailSpace(c.ToString());
                 current = frontSwitch.switchUp;
             }
             else
             {
-                frontSwitch.switchDown = new RailSpace();
+                frontSwitch.switchDown = new RailSpace(c.ToString());
                 current = frontSwitch.switchDown;
             }
             current.previous = frontSwitch;
