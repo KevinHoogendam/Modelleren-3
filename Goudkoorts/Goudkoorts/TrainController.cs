@@ -53,61 +53,116 @@ namespace Goudkoorts
 
         private void MoveTrains()
         {
-            Space current;
-            bool backA = gameController.boardController.board.backSwitchA.switchIsUp;
-            bool backB = gameController.boardController.board.backSwitchB.switchIsUp;
-            bool backC = gameController.boardController.board.backSwitchC.switchIsUp;
+            Space currentA = gameController.boardController.board.endTop;
+            Space currentB = gameController.boardController.board.backSwitchB.switchDown;
+            Space currentC = gameController.boardController.board.endBottom;
 
-            //End naar A
-            current = gameController.boardController.board.endTop;
-            bool noPre = false;
-            while(!noPre)
+            bool isDone = false;
+            bool isDoneA = false;
+            bool isDoneB = false;
+            bool isDoneC = false;
+
+            gameController.boardController.board.backSwitchA.isChecked = false;
+            gameController.boardController.board.backSwitchB.isChecked = false;
+            gameController.boardController.board.backSwitchC.isChecked = false;
+
+            while(!isDone)
             {
-
-                if(current.train != null && current == current.next.previous)
+                //currentA
+                if(!isDoneA)
                 {
-                    if(current.next.train == null)
+                    if (currentA == gameController.boardController.board.startA)
                     {
-                        current.next.train = current.train;
-                        current.train = null;
+                        isDoneA = true;
+                    }
+
+                    currentA = MoveTrainOnSpace(currentA);
+
+                    if (currentA == gameController.boardController.board.backSwitchB)
+                    {
+                        currentA = MoveTrainOnSpace(currentA);
+                        currentA = gameController.boardController.board.backSwitchB.switchUp;
+                        gameController.boardController.board.backSwitchB.isChecked = true;
+                    }
+                    else if (currentA == gameController.boardController.board.backSwitchA)
+                    {
+                        currentA = MoveTrainOnSpace(currentA);
+                        currentA = gameController.boardController.board.backSwitchA.switchUp;
+                        gameController.boardController.board.backSwitchA.isChecked = true;
+                    }
+                }
+
+                //currentC
+                if (!isDoneC)
+                {
+                    if (currentC == gameController.boardController.board.startC)
+                    {
+                        isDoneC = true;
+                    }
+
+                    currentC = MoveTrainOnSpace(currentC);
+
+                    if (currentC == gameController.boardController.board.backSwitchC)
+                    {
+                        currentC = MoveTrainOnSpace(currentC);
+                        currentC = gameController.boardController.board.backSwitchC.switchDown;
+                        gameController.boardController.board.backSwitchC.isChecked = true;
+                    }
+                }
+                //currentB
+                if (!isDoneB)
+                {
+                    if(currentB == gameController.boardController.board.startB)
+                    {
+                        isDoneB = true;
+                    }
+
+                    if (currentB == gameController.boardController.board.backSwitchB.switchDown)
+                    {
+                        if(gameController.boardController.board.backSwitchB.isChecked)
+                        {
+                            currentB = MoveTrainOnSpace(currentB);
+                        }
+                    }
+                    else if (currentB == gameController.boardController.board.backSwitchC.switchUp)
+                    {
+                        if (gameController.boardController.board.backSwitchC.isChecked)
+                        {
+                            currentB = MoveTrainOnSpace(currentB);
+                        }
+                    }
+                    else if (currentB == gameController.boardController.board.backSwitchA.switchDown)
+                    {
+                        if (gameController.boardController.board.backSwitchA.isChecked)
+                        {
+                            currentB = MoveTrainOnSpace(currentB);
+                        }
                     }
                     else
                     {
-                        current.train = null;
-                        current.next.train.symbol = "X";
-                       // gameController.gameOver = true;
+                        currentB = MoveTrainOnSpace(currentB);
+                    }
+
+                    if (currentB == gameController.boardController.board.frontSwitchB)
+                    {
+                        currentB = gameController.boardController.board.backSwitchC.switchUp;
+                    }
+                    if (currentB == gameController.boardController.board.frontSwitchA)
+                    {
+                        currentB = gameController.boardController.board.backSwitchA.switchDown;
                     }
                 }
-                if (current.previous != null)
+
+                if(isDoneA && isDoneB && isDoneC)
                 {
-                    if (!backA)
-                    {
-                        gameController.boardController.board.backSwitchA.Switch();
-                    }
-                    if (!backB)
-                    {
-                        gameController.boardController.board.backSwitchB.Switch();
-                    }
-                    current = current.previous;
-                    if (!backA)
-                    {
-                        gameController.boardController.board.backSwitchA.Switch();
-                    }
-                    if (!backB)
-                    {
-                        gameController.boardController.board.backSwitchB.Switch();
-                    }
-                }
-                else
-                {
-                    noPre = true;
+                    isDone = true;
                 }
             }
+        }
 
-            //End naar C
-            current = gameController.boardController.board.endBottom;
-            noPre = false;
-            while (!noPre)
+        private Space MoveTrainOnSpace(Space current)
+        {
+            if (current.next != null)
             {
 
                 if (current.train != null && current == current.next.previous)
@@ -120,82 +175,20 @@ namespace Goudkoorts
                     else
                     {
                         current.train = null;
-                        current.next.train.symbol = "#";
-                        //gameController.gameOver = true;
-                    }
-                }
-                if (current.previous != null)
-                {
-                    if (backC)
-                    {
-                        gameController.boardController.board.backSwitchC.Switch();
-                    }
-                    current = current.previous;
-                    if (backC)
-                    {
-                        gameController.boardController.board.backSwitchC.Switch();
-                    }
-                }
-                else
-                {
-                    noPre = true;
-                }
-            }
-            //switch C naar begin B
-            current = gameController.boardController.board.backSwitchB.switchDown;
-            noPre = false;
-            bool checkSpace = true;
-            while (!noPre)
-            {
-                if (current == gameController.boardController.board.frontSwitchB || current == gameController.boardController.board.frontSwitchA)
-                {
-                    checkSpace = false;
-                }
-
-                if (current == gameController.boardController.board.backSwitchC.switchUp || current == gameController.boardController.board.backSwitchA.switchDown)
-                {
-                    checkSpace = true;
-                }
-
-                if (current.train != null && current == current.next.previous && checkSpace)
-                {
-                    if (current.next.train == null)
-                    {
-                        current.next.train = current.train;
-                        current.train = null;
-                    }
-                    else
-                    {
-                        current.train = null;
                         current.next.train.symbol = "X";
-                        //gameController.gameOver = true;
+                        // gameController.gameOver = true;
                     }
-                }
-                if (current.previous != null)
-                {
-                    if (!backC)
-                    {
-                        gameController.boardController.board.backSwitchC.Switch();
-                    }
-                    if (backA)
-                    {
-                        gameController.boardController.board.backSwitchA.Switch();
-                    }
-                    current = current.previous;
-                    if (!backC)
-                    {
-                        gameController.boardController.board.backSwitchC.Switch();
-                    }
-                    if (backA)
-                    {
-                        gameController.boardController.board.backSwitchA.Switch();
-                    }
-                }
-                else
-                {
-                    noPre = true;
                 }
             }
+            else if (current.train != null)
+            {
+                current.train = null;
+            }
+            if (current.previous != null)
+            {
+                current = current.previous;
+            }
+            return current;
         }
 
         private void GenerateNewTrain()
