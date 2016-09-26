@@ -20,8 +20,11 @@ namespace Goudkoorts
 
         public void Switch()
         {
-            switchIsUp = !switchIsUp;
-            SwitchCase();
+            if(Train == null)
+            {
+                switchIsUp = !switchIsUp;
+                SwitchCase();
+            }
         }
 
         private void SwitchCase()
@@ -30,18 +33,18 @@ namespace Goudkoorts
             {
                 case true:
                     setNext(switchUp);
-                    symbol = ":" + switchNumber + "/";
+                    Symbol = ":" + switchNumber + ":_/";
                     break;
                 case false:
                     setNext(switchDown);
-                    symbol = ":" + switchNumber + @"\";
+                    Symbol = ":" + switchNumber + @":_\";
                     break;
             }
         }
 
         private void setNext(Space next)
         {
-            this.next = next;
+            this.Next = next;
         }
     }
 }

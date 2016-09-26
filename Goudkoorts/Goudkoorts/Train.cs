@@ -8,13 +8,13 @@ namespace Goudkoorts
 {
     class Train
     {
-        public String symbol;
+        public Char symbol;
         public bool isFull;
 
         public Train()
         {
             isFull = true;
-            this.symbol = "#";
+            this.symbol = '#';
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Goudkoorts
     {
         public StartSpace(String start)
         {
-            this.symbol = start + ":_";
+            this.Symbol = start + ":_";
         }
     }
 }

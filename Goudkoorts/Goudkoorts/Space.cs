@@ -8,23 +8,28 @@ namespace Goudkoorts
 {
     class Space
     {
-        public Space next;
-        public Space previous;
-
-        public Train train;
-
-        public String symbol;
+        public Space Next;
+        public Space Previous;
+        public Train Train;
+        public String Symbol;
 
         public string GetSymbol()
         {
             String currentSymbol;
-            if(train == null)
+            if (Train == null)
             {
-                currentSymbol = symbol;
+                currentSymbol = Symbol;
             }
             else
             {
-                currentSymbol = train.symbol;
+                if (Symbol.Contains('_'))
+                {
+                    currentSymbol = Symbol.Replace('_', Train.symbol);
+                }
+                else
+                {
+                    currentSymbol = Symbol;
+                }
             }
             return currentSymbol;
         }

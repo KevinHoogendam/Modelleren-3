@@ -48,39 +48,39 @@ namespace Goudkoorts
                 {
                     case 2:
                         backSwitchA = addBackSwitch(backSwitchA, true, current);
-                        current.next = backSwitchA;
-                        current = current.next;
+                        current.Next = backSwitchA;
+                        current = current.Next;
                         break;
                     case 4:
-                        current.next = frontSwitchA;
-                        current = current.next;
-                        current.next = addFrontSwitch(frontSwitchA, true, counter);
-                        current = current.next;
+                        current.Next = frontSwitchA;
+                        current = current.Next;
+                        current.Next = addFrontSwitch(frontSwitchA, true, counter);
+                        current = current.Next;
                         frontSwitchMade = true;
                         break;
                     case 10:
                         addBackSwitch(backSwitchB, true, current);
-                        current.next = backSwitchB;
-                        current = current.next;
+                        current.Next = backSwitchB;
+                        current = current.Next;
                         break;
                     case 17:
                         QuaySpace tempQuay = new QuaySpace();
-                        tempQuay.previous = current;
-                        current.next = tempQuay;
-                        current = current.next;
+                        tempQuay.Previous = current;
+                        current.Next = tempQuay;
+                        current = current.Next;
                         break;
                     case 26:
-                        endTop.previous = current;
-                        current.next = endTop;
-                        current = current.next;
+                        endTop.Previous = current;
+                        current.Next = endTop;
+                        current = current.Next;
                         break;
                     default:
                         if (!frontSwitchMade)
                         {
-                            RailSpace temp = new RailSpace(counter.ToString());
-                            temp.previous = current;
-                            current.next = temp;
-                            current = current.next;
+                            RailSpace temp = new RailSpace();
+                            temp.Previous = current;
+                            current.Next = temp;
+                            current = current.Next;
                         }
                         else
                         {
@@ -99,39 +99,39 @@ namespace Goudkoorts
                 {
                     case 5:
                         addBackSwitch(backSwitchC, false, current);
-                        current.next = backSwitchC;
-                        current = current.next;
+                        current.Next = backSwitchC;
+                        current = current.Next;
                         break;
                     case 7:
-                        if (frontSwitchB.previous == null)
+                        if (frontSwitchB.Previous == null)
                         {
-                            frontSwitchB.previous = current;
+                            frontSwitchB.Previous = current;
                         }
-                        current.next = frontSwitchB;
-                        current = current.next;
-                        current.next = addFrontSwitch(frontSwitchB, false, counter);
-                        current = current.next;
+                        current.Next = frontSwitchB;
+                        current = current.Next;
+                        current.Next = addFrontSwitch(frontSwitchB, false, counter);
+                        current = current.Next;
 
                         frontSwitchMade = true;
                         break;
                     case 14:
                         QuaySpace tempQuay = new QuaySpace();
-                        tempQuay.previous = current;
-                        current.next = tempQuay;
-                        current = current.next;
+                        tempQuay.Previous = current;
+                        current.Next = tempQuay;
+                        current = current.Next;
                         break;
                     case 23:
-                        endBottom.previous = current;
-                        current.next = endBottom;
-                        current = current.next;
+                        endBottom.Previous = current;
+                        current.Next = endBottom;
+                        current = current.Next;
                         break;
                     default:
                         if (!frontSwitchMade)
                         {
-                            RailSpace temp = new RailSpace(counter.ToString());
-                        temp.previous = current;
-                        current.next = temp;
-                        current = current.next;
+                            RailSpace temp = new RailSpace();
+                        temp.Previous = current;
+                        current.Next = temp;
+                        current = current.Next;
                          }
                          else
                          {
@@ -150,52 +150,52 @@ namespace Goudkoorts
                 {
                     case 2:
                         backSwitchA = addBackSwitch(backSwitchA, false, current);
-                        current.next = backSwitchA;
-                        current = current.next;
+                        current.Next = backSwitchA;
+                        current = current.Next;
                         break;
                     case 4:
-                        if (frontSwitchA.previous == null)
+                        if (frontSwitchA.Previous == null)
                         {
-                            frontSwitchA.previous = current;
+                            frontSwitchA.Previous = current;
                         }
-                        current.next = frontSwitchA;
-                        current = current.next;
-                        current.next = addFrontSwitch(frontSwitchA, false, counter);
-                        current = current.next;
+                        current.Next = frontSwitchA;
+                        current = current.Next;
+                        current.Next = addFrontSwitch(frontSwitchA, false, counter);
+                        current = current.Next;
                         frontSwitchMade = true;
                         break;
                     case 7:
                         backSwitchC = addBackSwitch(backSwitchC, true, current);
-                        current.next = backSwitchC;
-                        current = current.next;
+                        current.Next = backSwitchC;
+                        current = current.Next;
                         break;
                     case 9:
-                        if (frontSwitchB.previous == null)
+                        if (frontSwitchB.Previous == null)
                         {
-                            frontSwitchB.previous = current;
+                            frontSwitchB.Previous = current;
                         }
-                        current.next = frontSwitchB;
-                        current = current.next;
-                        current.next = addFrontSwitch(frontSwitchB, true, counter);
-                        current = current.next;
+                        current.Next = frontSwitchB;
+                        current = current.Next;
+                        current.Next = addFrontSwitch(frontSwitchB, true, counter);
+                        current = current.Next;
                         frontSwitchMade = true;
                         break;
                     case 12:
                         backSwitchB = addBackSwitch(backSwitchB, false, current);
-                        current.next = backSwitchB;
-                        current = current.next;
+                        current.Next = backSwitchB;
+                        current = current.Next;
                         break;
                     case 3:
                     case 8:
-                        current = current.next;
+                        current = current.Next;
                         break;
                     default:
                         if (!frontSwitchMade)
                         {
-                            RailSpace temp = new RailSpace(counter.ToString());
-                            temp.previous = current;
-                            current.next = temp;
-                            current = current.next;
+                            RailSpace temp = new RailSpace();
+                            temp.Previous = current;
+                            current.Next = temp;
+                            current = current.Next;
                         }
                         else
                         {
@@ -240,8 +240,8 @@ namespace Goudkoorts
             Space current = start;
             while (current != null)
             {
-                Console.Write(current.symbol);
-                current = current.next;
+                Console.Write(current.Symbol);
+                current = current.Next;
             }
             Console.WriteLine("");
         }
@@ -251,15 +251,15 @@ namespace Goudkoorts
             Space current;
             if(isUp)
             {
-                frontSwitch.switchUp = new RailSpace(c.ToString());
+                frontSwitch.switchUp = new RailSpace();
                 current = frontSwitch.switchUp;
             }
             else
             {
-                frontSwitch.switchDown = new RailSpace(c.ToString());
+                frontSwitch.switchDown = new RailSpace();
                 current = frontSwitch.switchDown;
             }
-            current.previous = frontSwitch;
+            current.Previous = frontSwitch;
             return current;
         }
         private BackSwitchSpace addBackSwitch(BackSwitchSpace backSwitch, bool isUp, Space current)

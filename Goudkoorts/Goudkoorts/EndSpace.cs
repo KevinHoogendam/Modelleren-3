@@ -10,7 +10,7 @@ namespace Goudkoorts
     {
         public EndSpace()
         {
-            this.symbol = "End:_";
+            this.Symbol = "End:_";
         }
     }
 }

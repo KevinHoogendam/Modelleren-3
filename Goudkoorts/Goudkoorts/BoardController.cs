@@ -27,22 +27,23 @@ namespace Goudkoorts
             if (!board.frontSwitchA.switchIsUp)
             {
                 board.frontSwitchA.switchIsUp = true;
-                board.frontSwitchA.next = board.frontSwitchA.switchUp;
+                board.frontSwitchA.Next = board.frontSwitchA.switchUp;
             }
+            Console.Write("         ");
             current = board.startA;
             for (int i = 0; i < 27; i++)
             {
-                current = current.next;
+                current = current.Next;
             }
             for (int reverse = 27; reverse > 15; reverse--)
             {
                 Console.Write(current.GetSymbol() + "  ");
-                current = current.previous;
+                current = current.Previous;
             }
             Console.WriteLine("");
 
             //regel 2
-            Console.Write("                                         ");
+            Console.Write("                                                 ");
             Console.WriteLine(current.GetSymbol());
 
             //regel 3
@@ -50,16 +51,16 @@ namespace Goudkoorts
             for (int i = 0; i < 3; i++)
             {
                 Console.Write(current.GetSymbol() + "  ");
-                current = current.next;
+                current = current.Next;
             }
-            Console.Write("         ");
+            Console.Write("            ");
             for (int i = 0; i < 8; i++)
             {
                 if (i >= 3 && i <= 7)
                 {
-                    Console.Write(current.GetSymbol() + "  ");
+                    Console.Write(current.GetSymbol() + "   ");
                 }
-                current = current.next;
+                current = current.Next;
             }
             Console.Write("      ");
             for (int i = 0; i < 4; i++)
@@ -68,7 +69,7 @@ namespace Goudkoorts
                 {
                     Console.Write(current.GetSymbol() + "  ");
                 }
-                current = current.next;
+                current = current.Next;
             }
             Console.WriteLine("");
 
@@ -81,16 +82,16 @@ namespace Goudkoorts
                 {
                     Console.Write(current.GetSymbol() + " ");
                 }
-                current = current.next;
+                current = current.Next;
             }
-            Console.Write("                ");
+            Console.Write("                  ");
             for (int i = 0; i < 9; i++)
             {
                 if (i >= 5 && i <= 7)
                 {
                     Console.Write(current.GetSymbol() + " ");
                 }
-                current = current.next;
+                current = current.Next;
             }
             Console.WriteLine("");
 
@@ -98,52 +99,52 @@ namespace Goudkoorts
             if (board.frontSwitchA.switchIsUp)
             {
                 board.frontSwitchA.switchIsUp = false;
-                board.frontSwitchA.next = board.frontSwitchA.switchDown;
+                board.frontSwitchA.Next = board.frontSwitchA.switchDown;
             }
             if (!board.frontSwitchB.switchIsUp)
             {
                 board.frontSwitchB.switchIsUp = true;
-                board.frontSwitchB.next = board.frontSwitchB.switchUp;
+                board.frontSwitchB.Next = board.frontSwitchB.switchUp;
             }
 
             current = board.startB;
             for (int i = 0; i < 3; i++)
             {
                 Console.Write(current.GetSymbol() + "  ");
-                current = current.next;
+                current = current.Next;
             }
-            Console.Write("       ");
+            Console.Write("           ");
             for(int i = 0; i < 5; i++)
             {
                 if (i >= 3 && i <= 4)
                 {
-                    Console.Write(current.GetSymbol() + "  ");
+                    Console.Write(current.GetSymbol() + " ");
                 }
-                current = current.next;
+                current = current.Next;
             }
 
-            Console.Write("       ");
+            Console.Write("            ");
             for(int i = 0; i < 5; i++)
             {
                 if (i >= 3 && i <= 4)
                 {
-                    Console.Write(current.GetSymbol() + "  ");
+                    Console.Write(current.GetSymbol() + " ");
                 }
-                current = current.next;
+                current = current.Next;
             }
             Console.WriteLine("");
 
             //regel 6
 
             current = board.startB;
-            Console.Write("                      ");
+            Console.Write("                         ");
             for (int i = 0; i < 11; i++)
             {
                 if (i >= 8 && i <= 10)
                 {
                     Console.Write(current.GetSymbol() + " ");
                 }
-                current = current.next;
+                current = current.Next;
             }
             Console.WriteLine("");
 
@@ -152,42 +153,43 @@ namespace Goudkoorts
             if (board.frontSwitchB.switchIsUp)
             {
                 board.frontSwitchB.switchIsUp = false;
-                board.frontSwitchB.next = board.frontSwitchB.switchDown;
+                board.frontSwitchB.Next = board.frontSwitchB.switchDown;
             }
-            Console.Write("    ");
+            Console.Write("  ");
             current = board.startC;
             for (int i = 0; i < 6; i++)
             {
-                Console.Write(current.GetSymbol() + "  ");
-                current = current.next;
+                Console.Write(current.GetSymbol() + "   ");
+                current = current.Next;
             }
 
-            Console.Write("       ");
+            Console.Write("          ");
             for (int i = 0; i < 6; i++)
             {
                 if (i >= 3 && i <= 5)
                 {
                     Console.Write(current.GetSymbol() + "  ");
                 }
-                current = current.next;
+                current = current.Next;
             }
             Console.WriteLine("");
 
             //regel 8
-            Console.Write("                                       ");
+            Console.Write("                                            ");
             Console.Write(current.GetSymbol());
             Console.WriteLine("");
 
             //regel 9
-            while (current.next != null)
+            Console.Write("    ");
+            while (current.Next != null)
             {
-                current = current.next;
+                current = current.Next;
             }
 
             for (int reverse = 0; reverse < 12; reverse++)
             {
                 Console.Write(current.GetSymbol() + "  ");
-                current = current.previous;
+                current = current.Previous;
             }
             Console.WriteLine("");
 

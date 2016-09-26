@@ -46,6 +46,7 @@ namespace Goudkoorts
                 if (!gameController.gameOver)
                 {
                     Countdown();
+                    counter++;
                 }
             }
             thread.Abort();
@@ -162,31 +163,31 @@ namespace Goudkoorts
 
         private Space MoveTrainOnSpace(Space current)
         {
-            if (current.next != null)
+            if (current.Next != null)
             {
 
-                if (current.train != null && current == current.next.previous)
+                if (current.Train != null && current == current.Next.Previous)
                 {
-                    if (current.next.train == null)
+                    if (current.Next.Train == null)
                     {
-                        current.next.train = current.train;
-                        current.train = null;
+                        current.Next.Train = current.Train;
+                        current.Train = null;
                     }
                     else
                     {
-                        current.train = null;
-                        current.next.train.symbol = "X";
-                        // gameController.gameOver = true;
+                        current.Train = null;
+                        current.Next.Train.symbol = 'X';
+                        gameController.gameOver = true;
                     }
                 }
             }
-            else if (current.train != null)
+            else if (current.Train != null)
             {
-                current.train = null;
+                current.Train = null;
             }
-            if (current.previous != null)
+            if (current.Previous != null)
             {
-                current = current.previous;
+                current = current.Previous;
             }
             return current;
         }
@@ -197,15 +198,15 @@ namespace Goudkoorts
             int list = rnd.Next(1, 4);
             if (list == 1)
             {
-                gameController.boardController.board.startA.train = new Train();
+                gameController.boardController.board.startA.Train = new Train();
             }
             else if (list == 2)
             {
-                gameController.boardController.board.startB.train = new Train();
+                gameController.boardController.board.startB.Train = new Train();
             }
             else if (list == 3)
             {
-                gameController.boardController.board.startC.train = new Train();
+                gameController.boardController.board.startC.Train = new Train();
             }
         }
 

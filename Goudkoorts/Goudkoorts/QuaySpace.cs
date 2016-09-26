@@ -10,7 +10,7 @@ namespace Goudkoorts
     {
         public QuaySpace()
         {
-            this.symbol = ":K:";
+            this.Symbol = ":K_:";
         }
     }
 }
