@@ -8,70 +8,125 @@ namespace Goudkoorts
 {
     class Board
     {
-        public StartSpace startA;
-        public StartSpace startB;
-        public StartSpace startC;
+        public StartSpace StartA;
+        public StartSpace StartB;
+        public StartSpace StartC;
 
-        public BackSwitchSpace backSwitchA;
-        public BackSwitchSpace backSwitchB;
-        public BackSwitchSpace backSwitchC;
-        public FrontSwitchSpace frontSwitchA;
-        public FrontSwitchSpace frontSwitchB;
+        public BackSwitchSpace BackSwitchA;
+        public BackSwitchSpace BackSwitchB;
+        public BackSwitchSpace BackSwitchC;
+        public FrontSwitchSpace FrontSwitchA;
+        public FrontSwitchSpace FrontSwitchB;
 
-        public EndSpace endTop;
-        public EndSpace endBottom;
+        public QuaySpace QuayTop;
+        public QuaySpace QuayBottom;
+
+        public EndSpace EndTop;
+        public EndSpace EndBottom;
+
+        public BoatSpace BoatTop;
+        public BoatSpace BoatBottom;
+
+        public BoatLoadingSpace LoadTop;
+        public BoatLoadingSpace LoadBottom;
 
         public Board()
         {
-            startA = new StartSpace("A");
-            startB = new StartSpace("B");
-            startC = new StartSpace("C");
-            backSwitchA = new BackSwitchSpace("A");
-            backSwitchB = new BackSwitchSpace("C");
-            backSwitchC = new BackSwitchSpace("D");
-            frontSwitchA = new FrontSwitchSpace("B");
-            frontSwitchB = new FrontSwitchSpace("E");
-            endTop = new EndSpace();
-            endBottom = new EndSpace();
+            StartA = new StartSpace("A");
+            StartB = new StartSpace("B");
+            StartC = new StartSpace("C");
+            BackSwitchA = new BackSwitchSpace("A");
+            BackSwitchB = new BackSwitchSpace("C");
+            BackSwitchC = new BackSwitchSpace("D");
+            FrontSwitchA = new FrontSwitchSpace("B");
+            FrontSwitchB = new FrontSwitchSpace("E");
+            QuayTop = new QuaySpace();
+            QuayBottom = new QuaySpace();
+            EndTop = new EndSpace();
+            EndBottom = new EndSpace();
+            BoatTop = new BoatSpace();
+            BoatBottom = new BoatSpace();
+            LoadBottom = new BoatLoadingSpace();
+            LoadTop = new BoatLoadingSpace();
         }
 
         public void CreateBoard()
         {
             Space current;
             bool frontSwitchMade = false;
+            //BoatTop
+            current = BoatTop;
+            for (int i = 0; i < 33; i++)
+            {
+                switch (i)
+                {
+                    case 12:
+                        LoadTop.Previous = current;
+                        current.Next = LoadTop;
+                        current = current.Next;
+                        break;
+                    default:
+                        BoatSpace temp = new BoatSpace();
+                        temp.Previous = current;
+                        current.Next = temp;
+                        current = current.Next;
+                        break;
+
+                }
+            }
+
+            //BoatBottom
+            current = BoatBottom;
+            for (int i = 0; i < 33; i++)
+            {
+                switch (i)
+                {
+                    case 10:
+                        LoadBottom.Previous = current;
+                        current.Next = LoadBottom;
+                        current = current.Next;
+                        break;
+                    default:
+                        BoatSpace temp = new BoatSpace();
+                        temp.Previous = current;
+                        current.Next = temp;
+                        current = current.Next;
+                        break;
+
+                }
+            }
+
             //LijstA
-            current = startA;
-            int counter = 1;
+            current = StartA;
             for(int i = 0; i < 27; i++)
             {
                 switch (i)
                 {
                     case 2:
-                        backSwitchA = addBackSwitch(backSwitchA, true, current);
-                        current.Next = backSwitchA;
+                        BackSwitchA = addBackSwitch(BackSwitchA, true, current);
+                        current.Next = BackSwitchA;
                         current = current.Next;
                         break;
                     case 4:
-                        current.Next = frontSwitchA;
+                        current.Next = FrontSwitchA;
                         current = current.Next;
-                        current.Next = addFrontSwitch(frontSwitchA, true, counter);
+                        current.Next = addFrontSwitch(FrontSwitchA, true);
                         current = current.Next;
                         frontSwitchMade = true;
                         break;
                     case 10:
-                        addBackSwitch(backSwitchB, true, current);
-                        current.Next = backSwitchB;
+                        addBackSwitch(BackSwitchB, true, current);
+                        current.Next = BackSwitchB;
                         current = current.Next;
                         break;
                     case 17:
-                        QuaySpace tempQuay = new QuaySpace();
-                        tempQuay.Previous = current;
-                        current.Next = tempQuay;
+                        QuayTop.Previous = current;
+                        current.Next = QuayTop;
                         current = current.Next;
                         break;
                     case 26:
-                        endTop.Previous = current;
-                        current.Next = endTop;
+                        EndTop.Previous = current;
+                        current.Next = EndTop;
                         current = current.Next;
                         break;
                     default:
@@ -89,40 +144,38 @@ namespace Goudkoorts
                         break;
                       
                 }
-                counter++;
             }
             //Lijst C
-            current = startC;
+            current = StartC;
             for (int i = 0; i < 24; i++)
             {
                 switch (i)
                 {
                     case 5:
-                        addBackSwitch(backSwitchC, false, current);
-                        current.Next = backSwitchC;
+                        addBackSwitch(BackSwitchC, false, current);
+                        current.Next = BackSwitchC;
                         current = current.Next;
                         break;
                     case 7:
-                        if (frontSwitchB.Previous == null)
+                        if (FrontSwitchB.Previous == null)
                         {
-                            frontSwitchB.Previous = current;
+                            FrontSwitchB.Previous = current;
                         }
-                        current.Next = frontSwitchB;
+                        current.Next = FrontSwitchB;
                         current = current.Next;
-                        current.Next = addFrontSwitch(frontSwitchB, false, counter);
+                        current.Next = addFrontSwitch(FrontSwitchB, false);
                         current = current.Next;
 
                         frontSwitchMade = true;
                         break;
                     case 14:
-                        QuaySpace tempQuay = new QuaySpace();
-                        tempQuay.Previous = current;
-                        current.Next = tempQuay;
+                        QuayBottom.Previous = current;
+                        current.Next = QuayBottom;
                         current = current.Next;
                         break;
                     case 23:
-                        endBottom.Previous = current;
-                        current.Next = endBottom;
+                        EndBottom.Previous = current;
+                        current.Next = EndBottom;
                         current = current.Next;
                         break;
                     default:
@@ -139,50 +192,48 @@ namespace Goudkoorts
                          }
                         break;
                 }
-                counter++;
-
             }
             //Lijst B
-            current = startB;
+            current = StartB;
             for (int i = 0; i < 13; i++)
             {
                 switch (i)
                 {
                     case 2:
-                        backSwitchA = addBackSwitch(backSwitchA, false, current);
-                        current.Next = backSwitchA;
+                        BackSwitchA = addBackSwitch(BackSwitchA, false, current);
+                        current.Next = BackSwitchA;
                         current = current.Next;
                         break;
                     case 4:
-                        if (frontSwitchA.Previous == null)
+                        if (FrontSwitchA.Previous == null)
                         {
-                            frontSwitchA.Previous = current;
+                            FrontSwitchA.Previous = current;
                         }
-                        current.Next = frontSwitchA;
+                        current.Next = FrontSwitchA;
                         current = current.Next;
-                        current.Next = addFrontSwitch(frontSwitchA, false, counter);
+                        current.Next = addFrontSwitch(FrontSwitchA, false);
                         current = current.Next;
                         frontSwitchMade = true;
                         break;
                     case 7:
-                        backSwitchC = addBackSwitch(backSwitchC, true, current);
-                        current.Next = backSwitchC;
+                        BackSwitchC = addBackSwitch(BackSwitchC, true, current);
+                        current.Next = BackSwitchC;
                         current = current.Next;
                         break;
                     case 9:
-                        if (frontSwitchB.Previous == null)
+                        if (FrontSwitchB.Previous == null)
                         {
-                            frontSwitchB.Previous = current;
+                            FrontSwitchB.Previous = current;
                         }
-                        current.Next = frontSwitchB;
+                        current.Next = FrontSwitchB;
                         current = current.Next;
-                        current.Next = addFrontSwitch(frontSwitchB, true, counter);
+                        current.Next = addFrontSwitch(FrontSwitchB, true);
                         current = current.Next;
                         frontSwitchMade = true;
                         break;
                     case 12:
-                        backSwitchB = addBackSwitch(backSwitchB, false, current);
-                        current.Next = backSwitchB;
+                        BackSwitchB = addBackSwitch(BackSwitchB, false, current);
+                        current.Next = BackSwitchB;
                         current = current.Next;
                         break;
                     case 3:
@@ -203,35 +254,34 @@ namespace Goudkoorts
                         }
                         break;
                 }
-                counter++;
             }
             SwitchAll();
         }
         private void boardTest()
         {
             SwitchAll();
-            ShowList(startA);
-            ShowList(startB);
-            ShowList(startC);
+            ShowList(StartA);
+            ShowList(StartB);
+            ShowList(StartC);
 
             SwitchAll();
-            ShowList(startA);
-            ShowList(startB);
-            ShowList(startC);
+            ShowList(StartA);
+            ShowList(StartB);
+            ShowList(StartC);
 
             SwitchAll();
-            ShowList(startA);
-            ShowList(startB);
-            ShowList(startC);
+            ShowList(StartA);
+            ShowList(StartB);
+            ShowList(StartC);
         }
 
         private void SwitchAll()
         {
-            backSwitchA.Switch();
-            backSwitchB.Switch();
-            backSwitchC.Switch();
-            frontSwitchA.Switch();
-            frontSwitchB.Switch();
+            BackSwitchA.Switch();
+            BackSwitchB.Switch();
+            BackSwitchC.Switch();
+            FrontSwitchA.Switch();
+            FrontSwitchB.Switch();
         }
 
         private void ShowList(Space start)
@@ -246,7 +296,7 @@ namespace Goudkoorts
             Console.WriteLine("");
         }
 
-        private Space addFrontSwitch(FrontSwitchSpace frontSwitch, bool isUp, int c)
+        private Space addFrontSwitch(FrontSwitchSpace frontSwitch, bool isUp)
         {
             Space current;
             if(isUp)

@@ -19,18 +19,39 @@ namespace Goudkoorts
         public void DrawBoard()
         {
             Console.Clear();
-            bool frontA = board.frontSwitchA.switchIsUp;
-            bool frontB = board.frontSwitchB.switchIsUp;
+            bool frontA = board.FrontSwitchA.switchIsUp;
+            bool frontB = board.FrontSwitchB.switchIsUp;
             Space current;
 
             //regel 1
-            if (!board.frontSwitchA.switchIsUp)
+            current = board.BoatTop;
+            for (int i = 0; i < 33; i++)
             {
-                board.frontSwitchA.switchIsUp = true;
-                board.frontSwitchA.Next = board.frontSwitchA.switchUp;
+                current = current.Next;
+            }
+            for (int reverse = 33; reverse > 16; reverse--)
+            {
+                Console.Write(current.GetSymbol());
+                current = current.Previous;
+            }
+            Console.WriteLine("");
+
+            //regel 2
+            current = board.BoatTop;
+            for (int i = 0; i < 16; i++)
+            {
+                Console.Write(current.GetSymbol());
+                current = current.Next;
+            }
+            Console.WriteLine("");
+            //regel 3
+            if (!board.FrontSwitchA.switchIsUp)
+            {
+                board.FrontSwitchA.switchIsUp = true;
+                board.FrontSwitchA.Next = board.FrontSwitchA.switchUp;
             }
             Console.Write("         ");
-            current = board.startA;
+            current = board.StartA;
             for (int i = 0; i < 27; i++)
             {
                 current = current.Next;
@@ -42,12 +63,12 @@ namespace Goudkoorts
             }
             Console.WriteLine("");
 
-            //regel 2
+            //regel 4
             Console.Write("                                                 ");
             Console.WriteLine(current.GetSymbol());
 
-            //regel 3
-            current = board.startA;
+            //regel 5
+            current = board.StartA;
             for (int i = 0; i < 3; i++)
             {
                 Console.Write(current.GetSymbol() + "  ");
@@ -73,8 +94,8 @@ namespace Goudkoorts
             }
             Console.WriteLine("");
 
-            //regel 4
-            current = board.startA;
+            //regel 6
+            current = board.StartA;
             Console.Write("         ");
             for (int i = 0; i < 6; i++)
             {
@@ -95,19 +116,19 @@ namespace Goudkoorts
             }
             Console.WriteLine("");
 
-            //regel 5
-            if (board.frontSwitchA.switchIsUp)
+            //regel 7
+            if (board.FrontSwitchA.switchIsUp)
             {
-                board.frontSwitchA.switchIsUp = false;
-                board.frontSwitchA.Next = board.frontSwitchA.switchDown;
+                board.FrontSwitchA.switchIsUp = false;
+                board.FrontSwitchA.Next = board.FrontSwitchA.switchDown;
             }
-            if (!board.frontSwitchB.switchIsUp)
+            if (!board.FrontSwitchB.switchIsUp)
             {
-                board.frontSwitchB.switchIsUp = true;
-                board.frontSwitchB.Next = board.frontSwitchB.switchUp;
+                board.FrontSwitchB.switchIsUp = true;
+                board.FrontSwitchB.Next = board.FrontSwitchB.switchUp;
             }
 
-            current = board.startB;
+            current = board.StartB;
             for (int i = 0; i < 3; i++)
             {
                 Console.Write(current.GetSymbol() + "  ");
@@ -134,9 +155,9 @@ namespace Goudkoorts
             }
             Console.WriteLine("");
 
-            //regel 6
+            //regel 8
 
-            current = board.startB;
+            current = board.StartB;
             Console.Write("                         ");
             for (int i = 0; i < 11; i++)
             {
@@ -148,15 +169,15 @@ namespace Goudkoorts
             }
             Console.WriteLine("");
 
-            //regel 7
+            //regel 9
 
-            if (board.frontSwitchB.switchIsUp)
+            if (board.FrontSwitchB.switchIsUp)
             {
-                board.frontSwitchB.switchIsUp = false;
-                board.frontSwitchB.Next = board.frontSwitchB.switchDown;
+                board.FrontSwitchB.switchIsUp = false;
+                board.FrontSwitchB.Next = board.FrontSwitchB.switchDown;
             }
             Console.Write("  ");
-            current = board.startC;
+            current = board.StartC;
             for (int i = 0; i < 6; i++)
             {
                 Console.Write(current.GetSymbol() + "   ");
@@ -174,12 +195,12 @@ namespace Goudkoorts
             }
             Console.WriteLine("");
 
-            //regel 8
+            //regel 10
             Console.Write("                                            ");
             Console.Write(current.GetSymbol());
             Console.WriteLine("");
 
-            //regel 9
+            //regel 11
             Console.Write("    ");
             while (current.Next != null)
             {
@@ -193,14 +214,36 @@ namespace Goudkoorts
             }
             Console.WriteLine("");
 
-            if (board.frontSwitchA.switchIsUp != frontA)
+            if (board.FrontSwitchA.switchIsUp != frontA)
             {
-                board.frontSwitchA.Switch();
+                board.FrontSwitchA.Switch();
             }
-            if (board.frontSwitchB.switchIsUp != frontB)
+            if (board.FrontSwitchB.switchIsUp != frontB)
             {
-                board.frontSwitchB.Switch();
+                board.FrontSwitchB.Switch();
             }
+
+            //regel 12
+            current = board.BoatBottom;
+            for (int i = 0; i < 16; i++)
+            {
+                Console.Write(current.GetSymbol());
+                current = current.Next;
+            }
+            Console.WriteLine("");
+
+            //regel 13
+            current = board.BoatBottom;
+            for (int i = 0; i < 33; i++)
+            {
+                current = current.Next;
+            }
+            for (int reverse = 33; reverse > 16; reverse--)
+            {
+                Console.Write(current.GetSymbol());
+                current = current.Previous;
+            }
+            Console.WriteLine("");
         }
     }
 }

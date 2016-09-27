@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts
 {
-    class Train
+    class BoatLoadingSpace : Space
     {
-        public Char Symbol;
-        public int Load;
-
-        public Train()
+        public BoatLoadingSpace()
         {
-            Load = 1;
-            this.Symbol = '#';
+            this.Symbol = ":K ~ :";
         }
     }
 }

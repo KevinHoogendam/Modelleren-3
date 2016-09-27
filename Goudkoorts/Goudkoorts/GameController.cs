@@ -28,7 +28,6 @@ namespace Goudkoorts
         {
             musicController.Play();
             trainController.InitThread();
-           //boardController.DrawBoard();
             gameInputView.GetUserSwitchInput(); // final
 
         }
@@ -40,23 +39,39 @@ namespace Goudkoorts
             switch (input)
             {
                 case 'a':
-                    boardController.board.backSwitchA.Switch();
+                    if (boardController.board.BackSwitchA.Train == null)
+                    {
+                        boardController.board.BackSwitchA.Switch();
+                    }
                     succes = true;
                     break;
                 case 'b':
-                    boardController.board.frontSwitchA.Switch();
+                    if (boardController.board.FrontSwitchA.Train == null)
+                    {
+                        boardController.board.FrontSwitchA.Switch();
+                    }                 
                     succes = true;
                     break;
                 case 'c':
-                    boardController.board.backSwitchB.Switch();
+                    if(boardController.board.BackSwitchB.Train == null)
+                    {
+                        boardController.board.BackSwitchB.Switch();
+                    }
                     succes = true;
                     break;
                 case 'd':
-                    boardController.board.backSwitchC.Switch();
+                    if (boardController.board.BackSwitchC.Train == null)
+                    {
+                        boardController.board.BackSwitchC.Switch();
+                    }
                     succes = true;
                     break;
                 case 'e':
-                    boardController.board.frontSwitchB.Switch();
+                    if (boardController.board.FrontSwitchB.Train == null)
+                    {
+                        boardController.board.FrontSwitchB.Switch();
+                    }
+                    boardController.board.FrontSwitchB.Switch();
                     succes = true;
                     break;
             }

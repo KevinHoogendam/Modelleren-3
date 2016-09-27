@@ -20,11 +20,8 @@ namespace Goudkoorts
 
         public void Switch()
         {
-            if(Train == null)
-            {
-                switchIsUp = !switchIsUp;
-                SwitchCase();
-            }
+            switchIsUp = !switchIsUp;
+            SwitchCase();
         }
 
         private void SwitchCase()

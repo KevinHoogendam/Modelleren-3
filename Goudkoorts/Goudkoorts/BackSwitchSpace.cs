@@ -11,7 +11,6 @@ namespace Goudkoorts
         public Space switchUp;
         public Space switchDown;
         private String switchNumber;
-        private String flexSymbol;
         public bool switchIsUp;
         public bool isChecked;
 
@@ -22,11 +21,8 @@ namespace Goudkoorts
 
         public void Switch()
         {
-            if (Train == null)
-            {
-                switchIsUp = !switchIsUp;
-                SwitchCase();
-            }
+            switchIsUp = !switchIsUp;
+            SwitchCase();
         }
 
         private void SwitchCase()

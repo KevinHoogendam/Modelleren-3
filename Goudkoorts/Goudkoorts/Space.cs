@@ -11,24 +11,28 @@ namespace Goudkoorts
         public Space Next;
         public Space Previous;
         public Train Train;
+        public Boat Boat;
         public String Symbol;
 
         public string GetSymbol()
         {
-            String currentSymbol;
-            if (Train == null)
-            {
-                currentSymbol = Symbol;
-            }
-            else
+            String currentSymbol = Symbol;
+            if (Train != null)
             {
                 if (Symbol.Contains('_'))
                 {
-                    currentSymbol = Symbol.Replace('_', Train.symbol);
+                    currentSymbol = Symbol.Replace('_', Train.Symbol);
                 }
-                else
+            }
+            else if (Boat != null)
+            {
+                if (Symbol.Equals(" ~ "))
                 {
-                    currentSymbol = Symbol;
+                    currentSymbol = Boat.Symbol;
+                }
+                else if (Symbol.Equals(":K ~ :"))
+                {
+                    currentSymbol = "K:" + Boat.Symbol + ":";
                 }
             }
             return currentSymbol;
