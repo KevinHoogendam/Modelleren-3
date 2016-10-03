@@ -23,19 +23,22 @@ namespace Goudkoorts
 
         public void AddLoad(int trainLoad)
         {
-            Load = Load + trainLoad;
-            if (Load > 0)
+            if(!isFull)
             {
-                this.Symbol = "0OO";
-            }
-            else if(Load >=4)
-            {
-                this.Symbol = "00O";
-            }
-            else if (Load == Capacity)
-            {
-                this.Symbol = "000";
-                isFull = true;
+                Load = Load + trainLoad;
+                if (Load == 1)
+                {
+                    this.Symbol = "0OO";
+                }
+                else if (Load >= (Capacity / 2) && Load < Capacity)
+                {
+                    this.Symbol = "00O";
+                }
+                else if (Load == Capacity)
+                {
+                    this.Symbol = "000";
+                    isFull = true;
+                }
             }
         }
     }

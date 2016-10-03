@@ -26,22 +26,25 @@ namespace Goudkoorts
 
         private void RunThread()
         {
-            int counter = 3;
+            int counter = 10;
             while (!gameController.gameOver)
             {
                 working = true;
                 MoveBoats();
                 MoveTrains();
-                if (counter % 3 == 0)
+                if (counter % 10 - (gameController.player.Score / 10) == 0)
                 {
                     GenerateNewTrain();
                 }
-                if (counter % 3 == 0)
+                if (counter % 20 == 0)
                 {
                     GenerateNewBoat();
                 }
-                //CalculatePoints();
+                CalculatePoints();
                 gameController.boardController.DrawBoard();
+
+                Console.WriteLine("Score: " + gameController.player.Score);
+
                 working = false;
                 if (!gameController.gameOver)
                 {
@@ -50,6 +53,33 @@ namespace Goudkoorts
                 }
             }
             thread.Abort();
+        }
+
+        private void CalculatePoints()
+        {
+            if(gameController.boardController.board.LoadTop.Boat != null && gameController.boardController.board.QuayTop.Train != null)
+            {
+                gameController.boardController.board.LoadTop.Boat.AddLoad(gameController.boardController.board.QuayTop.Train.Load);
+                gameController.boardController.board.QuayTop.Train.Load = 0;
+                gameController.boardController.board.QuayTop.Train.Symbol = 'U';
+                gameController.player.Score = gameController.player.Score + 1;
+                if(gameController.boardController.board.LoadTop.Boat.isFull)
+                {
+                    gameController.player.Score = gameController.player.Score + 10;
+                }
+            }
+
+            if (gameController.boardController.board.LoadBottom.Boat != null && gameController.boardController.board.QuayBottom.Train != null)
+            {
+                gameController.boardController.board.LoadBottom.Boat.AddLoad(gameController.boardController.board.QuayBottom.Train.Load);
+                gameController.boardController.board.QuayBottom.Train.Load = 0;
+                gameController.boardController.board.QuayBottom.Train.Symbol = 'U';
+                gameController.player.Score = gameController.player.Score + 1;
+                if (gameController.boardController.board.LoadBottom.Boat.isFull)
+                {
+                    gameController.player.Score = gameController.player.Score + 10;
+                }
+            }
         }
 
         private void MoveBoats()
@@ -286,16 +316,8 @@ namespace Goudkoorts
 
         public void Countdown()
         {
-            int counter = 3;
-            int timer = 3000; //- game.player.Score;
-            timer = timer / 3;
-
-            while (counter > 0)
-            {
-                Console.WriteLine(counter);
-                Thread.Sleep(timer);
-                counter--;
-            }
+            int timer = 4000 - (gameController.player.Score*20);
+            Thread.Sleep(timer);
         }
     }
 }

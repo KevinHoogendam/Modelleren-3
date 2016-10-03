@@ -14,6 +14,7 @@ namespace Goudkoorts
         public GameInputView gameInputView;
         public MusicController musicController;
         public TrainController trainController;
+        public Player player;
         public bool gameOver;
         public GameController()
         {
@@ -21,6 +22,7 @@ namespace Goudkoorts
             gameInputView = new GameInputView(this);
             musicController = new MusicController();
             trainController = new TrainController(this);
+            player = new Player();
             gameOver = false;
         }
 
