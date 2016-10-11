@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goudkoorts
+namespace Goudkoorts.Models
 {
-    class RailSpace : Space
+    class EndSpace : Space
     {
-        public RailSpace()
+        public EndSpace()
         {
-            this.Symbol = "_";
+            this.Symbol = "End:_";
         }
     }
 }

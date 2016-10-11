@@ -3,20 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Goudkoorts.Models;
 
-namespace Goudkoorts
+namespace Goudkoorts.Views
 {
-    class BoardController
+    class BoardView
     {
-        public Board board;
-
-        public BoardController()
-        {
-            board = new Board();
-            board.CreateBoard();
-        }
-
-        public void DrawBoard()
+        public void DrawBoard(Board board)
         {
             Console.Clear();
             bool frontA = board.FrontSwitchA.switchIsUp;

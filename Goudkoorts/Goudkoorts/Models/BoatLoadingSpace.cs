@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goudkoorts
+namespace Goudkoorts.Models
 {
-    class QuaySpace : Space
+    class BoatLoadingSpace : Space
     {
-        public QuaySpace()
+        public BoatLoadingSpace()
         {
-            this.Symbol = ":K_:";
+            this.Symbol = ":K ~ :";
         }
     }
 }

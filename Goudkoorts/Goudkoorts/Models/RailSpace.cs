@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goudkoorts
+namespace Goudkoorts.Models
 {
-    class StartSpace : Space
+    class RailSpace : Space
     {
-        public StartSpace(String start)
+        public RailSpace()
         {
-            this.Symbol = start + ":_";
+            this.Symbol = "_";
         }
     }
 }

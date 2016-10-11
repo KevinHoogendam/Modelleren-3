@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace Goudkoorts
+namespace Goudkoorts.Controllers
 {
     class MusicController
     {

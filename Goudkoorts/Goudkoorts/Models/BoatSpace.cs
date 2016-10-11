@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goudkoorts
+namespace Goudkoorts.Models
 {
-    class EndSpace : Space
+    class BoatSpace : Space
     {
-        public EndSpace()
+        public BoatSpace()
         {
-            this.Symbol = "End:_";
+            this.Symbol = " ~ ";
         }
     }
 }

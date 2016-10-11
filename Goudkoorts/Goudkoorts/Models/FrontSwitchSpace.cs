@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Goudkoorts
+namespace Goudkoorts.Models
 {
-    class BackSwitchSpace : Space
+    class FrontSwitchSpace : Space
     {
         public Space switchUp;
         public Space switchDown;
         private String switchNumber;
         public bool switchIsUp;
-        public bool isChecked;
 
-        public BackSwitchSpace(String point)
+        public FrontSwitchSpace(String point)
         {
             this.switchNumber = point;
         }
@@ -30,19 +29,19 @@ namespace Goudkoorts
             switch (switchIsUp)
             {
                 case true:
-                    setPrevious(switchUp);
-                    Symbol = @"\_:" + switchNumber + ":";
+                    setNext(switchUp);
+                    Symbol = ":" + switchNumber + ":_/";
                     break;
                 case false:
-                    setPrevious(switchDown);
-                    Symbol = "/_:" + switchNumber + ":";
+                    setNext(switchDown);
+                    Symbol = ":" + switchNumber + @":_\";
                     break;
             }
         }
 
-        private void setPrevious(Space previous)
+        private void setNext(Space next)
         {
-            this.Previous = previous;
+            this.Next = next;
         }
     }
 }

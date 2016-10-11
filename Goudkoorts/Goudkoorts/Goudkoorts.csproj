@@ -41,30 +41,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackSwitchSpace.cs" />
-    <Compile Include="Board.cs" />
-    <Compile Include="BoardController.cs" />
-    <Compile Include="Boat.cs" />
-    <Compile Include="BoatLoadingSpace.cs" />
-    <Compile Include="BoatSpace.cs" />
-    <Compile Include="EndSpace.cs" />
-    <Compile Include="GameController.cs" />
-    <Compile Include="GameInputView.cs" />
-    <Compile Include="MusicController.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Controllers\BoardController.cs" />
+    <Compile Include="Controllers\BoatController.cs" />
+    <Compile Include="Models\BackSwitchSpace.cs" />
+    <Compile Include="Models\Board.cs" />
+    <Compile Include="Views\BoardView.cs" />
+    <Compile Include="Models\Boat.cs" />
+    <Compile Include="Models\BoatLoadingSpace.cs" />
+    <Compile Include="Models\BoatSpace.cs" />
+    <Compile Include="Models\EndSpace.cs" />
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\GameInputController.cs" />
+    <Compile Include="Controllers\MusicController.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuaySpace.cs" />
-    <Compile Include="RailSpace.cs" />
-    <Compile Include="Space.cs" />
-    <Compile Include="StartSpace.cs" />
-    <Compile Include="FrontSwitchSpace.cs" />
-    <Compile Include="Train.cs" />
-    <Compile Include="TrainController.cs" />
+    <Compile Include="Models\QuaySpace.cs" />
+    <Compile Include="Models\RailSpace.cs" />
+    <Compile Include="Models\Space.cs" />
+    <Compile Include="Models\StartSpace.cs" />
+    <Compile Include="Models\FrontSwitchSpace.cs" />
+    <Compile Include="Models\Train.cs" />
+    <Compile Include="Controllers\TrainController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
