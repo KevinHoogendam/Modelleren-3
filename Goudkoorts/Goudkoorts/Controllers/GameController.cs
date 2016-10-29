@@ -11,13 +11,47 @@ namespace Goudkoorts.Controllers
 {
     class GameController
     {
-        public BoardView BoardView;
-        public BoardController BoardController;
-        public GameInputController GameInputView;
-        public MusicController MusicController;
-        public TrainController TrainController;
-        public BoatController BoatController;
-        public Player Player;
+        public Player Player
+        {
+            get;
+            set;
+        }
+
+        public TrainController TrainController
+        {
+            get;
+            set;
+        }
+
+        public BoatController BoatController
+        {
+            get;
+            set;
+        }
+
+        public MusicController MusicController
+        {
+            get;
+            set;
+        }
+
+        public BoardController BoardController
+        {
+            get;
+            set;
+        }
+
+        public GameInputController GameInputView
+        {
+            get;
+            set;
+        }
+
+        public BoardView BoardView
+        {
+            get;
+            set;
+        }
         public bool gameOver;
         private Thread thread;
         public GameController()
@@ -32,6 +66,8 @@ namespace Goudkoorts.Controllers
             this.gameOver = false;
             thread = new Thread(new ThreadStart(this.RunThread));
         }
+
+
 
         public void StartGame()
         {

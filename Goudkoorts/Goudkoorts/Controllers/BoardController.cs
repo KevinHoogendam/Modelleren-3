@@ -9,7 +9,12 @@ namespace Goudkoorts.Controllers
 {
     class BoardController
     {
-        public Board Board;
+
+        public Board Board
+        {
+            get;
+            set;
+        }
 
         public BoardController()
         {

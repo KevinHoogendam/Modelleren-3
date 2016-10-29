@@ -18,17 +18,19 @@ namespace Goudkoorts.Models
             get;
             set;
         }
+        public String Symbol
+        {
+            get;
+            set;
+        }
+
         public Train Train
         {
             get;
             set;
         }
+
         public Boat Boat
-        {
-            get;
-            set;
-        }
-        public String Symbol
         {
             get;
             set;

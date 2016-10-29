@@ -15,9 +15,7 @@ namespace Goudkoorts.Controllers
         public TrainController()
         {
             TrainHasCrashed = false;
-        }
-
-        
+        }     
 
         public bool MoveTrains(Board board)
         {

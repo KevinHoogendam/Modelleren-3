@@ -9,10 +9,16 @@ namespace Goudkoorts
 {
     class Program
     {
+        public GameController Game
+        {
+            get;
+            set;
+        }
+    
         static void Main(string[] args)
         {
-            GameController game = new GameController();
-            game.StartGame();
+            GameController Game = new GameController();
+            Game.StartGame();
             Console.ReadKey();
         }
     }

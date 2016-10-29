@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Goudkoorts.Controllers.BoardController" Collapsed="true">
+    <Position X="12.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAoAAACAAAAA=</HashCode>
+      <FileName>Controllers\BoardController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Board" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Controllers.BoatController" Collapsed="true">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAABAAAAAAAAAE=</HashCode>
+      <FileName>Controllers\BoatController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Controllers.GameController" Collapsed="true">
+    <Position X="12.25" Y="3.75" Width="1.75" />
+    <AssociationLine Name="Player" Type="Goudkoorts.Models.Player" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.312" Y="4.312" />
+        <Point X="13.312" Y="4.687" />
+        <Point X="15.375" Y="4.687" />
+        <Point X="15.375" Y="6.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="BoardController" Type="Goudkoorts.Controllers.BoardController" FixedToPoint="true">
+      <Path>
+        <Point X="13.062" Y="4.312" />
+        <Point X="13.062" Y="5.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GameInputView" Type="Goudkoorts.Controllers.GameInputController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14" Y="4.125" />
+        <Point X="14.375" Y="4.125" />
+        <Point X="14.375" Y="2.531" />
+        <Point X="15.25" Y="2.531" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAEAAAAQAEAgAQQAAAEAAAwIAQgAAIA=</HashCode>
+      <FileName>Controllers\GameController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Player" />
+      <Property Name="TrainController" />
+      <Property Name="BoatController" />
+      <Property Name="MusicController" />
+      <Property Name="BoardController" />
+      <Property Name="GameInputView" />
+      <Property Name="BoardView" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Controllers.GameInputController" Collapsed="true">
+    <Position X="15.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\GameInputController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Controllers.MusicController" Collapsed="true">
+    <Position X="9.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAQAAAAAAAAAAAAAAAAAAAAAAoAAgAAAACAA=</HashCode>
+      <FileName>Controllers\MusicController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Controllers.TrainController" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAoAAAAAAAAAAAAAAAAAQAAACAAAAAAAA=</HashCode>
+      <FileName>Controllers\TrainController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.BackSwitchSpace" Collapsed="true">
+    <Position X="11.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAIAAAAAAAAQAAAAAAAAAEAAAACAACAA=</HashCode>
+      <FileName>Models\BackSwitchSpace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.Board" Collapsed="true">
+    <Position X="12.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAEACAEACAAAAAAAQAAAwACCAAAIAAAAAAAAABAAgA=</HashCode>
+      <FileName>Models\Board.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Space" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Models.Boat" Collapsed="true">
+    <Position X="14.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAACAAAAQAAAAAAACAAACAA=</HashCode>
+      <FileName>Models\Boat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.BoatLoadingSpace" Collapsed="true">
+    <Position X="19.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BoatLoadingSpace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.BoatSpace" Collapsed="true">
+    <Position X="17.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BoatSpace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.EndSpace" Collapsed="true">
+    <Position X="15.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\EndSpace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.FrontSwitchSpace" Collapsed="true">
+    <Position X="9.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAIAAAAAAAAQAAAAAAAAAEAAAACAACAA=</HashCode>
+      <FileName>Models\FrontSwitchSpace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.Player" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.QuaySpace" Collapsed="true">
+    <Position X="13.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\QuaySpace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.RailSpace" Collapsed="true">
+    <Position X="7.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RailSpace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.Space" Collapsed="true">
+    <Position X="12.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAgAAAAAIAAAgAAIAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\Space.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Train" />
+      <Property Name="Boat" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Models.StartSpace" Collapsed="true">
+    <Position X="5.5" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="Goudkoorts.Models.Space" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="8.562" />
+        <Point X="13.25" Y="8.875" />
+        <Point X="6.25" Y="8.875" />
+        <Point X="6.25" Y="9.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\StartSpace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Models.Train" Collapsed="true">
+    <Position X="10.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\Train.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Goudkoorts.Program" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Game" Type="Goudkoorts.Controllers.GameController" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13" Y="1.062" />
+        <Point X="13" Y="1.437" />
+        <Point X="13.125" Y="1.437" />
+        <Point X="13.125" Y="3.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Game" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Goudkoorts.Views.BoardView" Collapsed="true">
+    <Position X="15.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\BoardView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
