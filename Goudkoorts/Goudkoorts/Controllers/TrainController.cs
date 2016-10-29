@@ -49,18 +49,16 @@ namespace Goudkoorts.Controllers
                         {
                             isDoneA = true;
                         }
-
-                        currentA = MoveTrainOnSpace(currentA);
-
+                        currentA = CheckSpace(currentA);
                         if (currentA == board.BackSwitchB)
                         {
-                            currentA = MoveTrainOnSpace(currentA);
+                            CheckSpace(currentA);
                             currentA = board.BackSwitchB.switchUp;
                             bIsChecked = true;
                         }
                         else if (currentA == board.BackSwitchA)
                         {
-                            currentA = MoveTrainOnSpace(currentA);
+                            CheckSpace(currentA);
                             currentA = board.BackSwitchA.switchUp;
                             aIsChecked = true;
                         }
@@ -78,11 +76,11 @@ namespace Goudkoorts.Controllers
                             isDoneC = true;
                         }
 
-                        currentC = MoveTrainOnSpace(currentC);
+                        currentC = CheckSpace(currentC);
 
                         if (currentC == board.BackSwitchC)
                         {
-                            currentC = MoveTrainOnSpace(currentC);
+                            CheckSpace(currentC);
                             currentC = board.BackSwitchC.switchDown;
                             cIsChecked = true;
                         }
@@ -100,33 +98,33 @@ namespace Goudkoorts.Controllers
                     {
                         if (bIsChecked)
                         {
-                            currentB = MoveTrainOnSpace(currentB);
+                            currentB = CheckSpace(currentB);
                         }
                     }
                     else if (currentB == board.BackSwitchC.switchUp)
                     {
                         if (cIsChecked)
                         {
-                            currentB = MoveTrainOnSpace(currentB);
+                            currentB = CheckSpace(currentB);
                         }
                     }
                     else if (currentB == board.BackSwitchA.switchDown)
                     {
                         if (aIsChecked)
                         {
-                            currentB = MoveTrainOnSpace(currentB);
+                            currentB = CheckSpace(currentB);
                         }
                     }
                     else
                     {
-                        currentB = MoveTrainOnSpace(currentB);
+                        currentB = CheckSpace(currentB);
                     }
 
                     if (currentB == board.FrontSwitchB)
                     {
                         currentB = board.BackSwitchC.switchUp;
                     }
-                    if (currentB == board.FrontSwitchA)
+                    else if (currentB == board.FrontSwitchA)
                     {
                         currentB = board.BackSwitchA.switchDown;
                     }
@@ -140,29 +138,11 @@ namespace Goudkoorts.Controllers
             return TrainHasCrashed;
         }
 
-        private Space MoveTrainOnSpace(Space current)
+        private Space CheckSpace(Space current)
         {
-            if (current.Next != null)
+            if (!current.Move())
             {
-
-                if (current.Train != null && current == current.Next.Previous)
-                {
-                    if (current.Next.Train == null)
-                    {
-                        current.Next.Train = current.Train;
-                        current.Train = null;
-                    }
-                    else
-                    {
-                        current.Train = null;
-                        current.Next.Train.Symbol = 'X';
-                        TrainHasCrashed = true;
-                    }
-                }
-            }
-            else if (current.Train != null)
-            {
-                current.Train = null;
+                TrainHasCrashed = true;
             }
             if (current.Previous != null)
             {

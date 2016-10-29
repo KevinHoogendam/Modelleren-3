@@ -18,9 +18,9 @@ namespace Goudkoorts.Controllers
             }
             while (current.Previous != null)
             {
-                current = MoveBoatOnSpace(current, board);
+                current = CheckSpace(current);
             }
-            current = MoveBoatOnSpace(current, board);
+            current = CheckSpace(current);
 
             current = board.BoatBottom;
             while (current.Next != null)
@@ -29,40 +29,15 @@ namespace Goudkoorts.Controllers
             }
             while (current.Previous != null)
             {
-                current = MoveBoatOnSpace(current, board);
+                current = CheckSpace(current);
             }
-            current = MoveBoatOnSpace(current, board);
+            current = CheckSpace(current);
             return board;
         }
 
-        private Space MoveBoatOnSpace(Space current, Board board)
+        private Space CheckSpace(Space current)
         {
-            if (current == board.LoadBottom || current == board.LoadTop)
-            {
-                if (current.Boat != null && current.Boat.isFull && current == current.Next.Previous)
-                {
-                    if (current.Next.Boat == null)
-                    {
-                        current.Next.Boat = current.Boat;
-                        current.Boat = null;
-                    }
-                }
-            }
-            else if (current.Next != null)
-            {
-                if (current.Boat != null && current == current.Next.Previous)
-                {
-                    if (current.Next.Boat == null)
-                    {
-                        current.Next.Boat = current.Boat;
-                        current.Boat = null;
-                    }
-                }
-            }
-            else if (current.Boat != null)
-            {
-                current.Boat = null;
-            }
+            current.Move();
             if (current.Previous != null)
             {
                 current = current.Previous;

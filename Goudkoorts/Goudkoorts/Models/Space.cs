@@ -6,36 +6,37 @@ using System.Threading.Tasks;
 
 namespace Goudkoorts.Models
 {
-    class Space
+    abstract class Space
     {
-        public Space Next;
-        public Space Previous;
-        public Train Train;
-        public Boat Boat;
-        public String Symbol;
-
-        public string GetSymbol()
+        public Space Next
         {
-            String currentSymbol = Symbol;
-            if (Train != null)
-            {
-                if (Symbol.Contains('_'))
-                {
-                    currentSymbol = Symbol.Replace('_', Train.Symbol);
-                }
-            }
-            else if (Boat != null)
-            {
-                if (Symbol.Equals(" ~ "))
-                {
-                    currentSymbol = Boat.Symbol;
-                }
-                else if (Symbol.Equals(":K ~ :"))
-                {
-                    currentSymbol = "K:" + Boat.Symbol + ":";
-                }
-            }
-            return currentSymbol;
+            get;
+            set;
         }
+        public Space Previous
+        {
+            get;
+            set;
+        }
+        public Train Train
+        {
+            get;
+            set;
+        }
+        public Boat Boat
+        {
+            get;
+            set;
+        }
+        public String Symbol
+        {
+            get;
+            set;
+        }
+
+        public abstract String GetSymbol();
+
+        public abstract Boolean Move();
+        
     }
 }

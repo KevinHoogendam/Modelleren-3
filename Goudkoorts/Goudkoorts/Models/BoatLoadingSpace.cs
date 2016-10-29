@@ -12,5 +12,24 @@ namespace Goudkoorts.Models
         {
             this.Symbol = ":K ~ :";
         }
+        public override String GetSymbol()
+        {
+            String symbol = this.Symbol;
+            if (Boat != null)
+            {
+                symbol = "K:" + Boat.Symbol + ":";
+            }
+            return symbol;
+        }
+
+        public override Boolean Move()
+        {
+            if (this.Boat != null && this.Boat.isFull && this.Next.Boat == null && this.Next.Previous == this)
+            {
+                this.Next.Boat = this.Boat;
+                this.Boat = null;
+            }
+            return true;
+        }
     }
 }

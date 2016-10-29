@@ -21,27 +21,49 @@ namespace Goudkoorts.Models
         public void Switch()
         {
             switchIsUp = !switchIsUp;
-            SwitchCase();
-        }
-
-        private void SwitchCase()
-        {
             switch (switchIsUp)
             {
                 case true:
-                    setPrevious(switchUp);
+                    Previous = switchUp;
                     Symbol = @"\_:" + switchNumber + ":";
                     break;
                 case false:
-                    setPrevious(switchDown);
+                    Previous = switchDown;
                     Symbol = "/_:" + switchNumber + ":";
                     break;
             }
         }
 
-        private void setPrevious(Space previous)
+        public override String GetSymbol()
         {
-            this.Previous = previous;
+            String symbol = this.Symbol;
+            if (Train != null)
+            {
+                if (this.Symbol.Contains('_'))
+                {
+                    symbol = Symbol.Replace('_', Train.Symbol);
+                }
+            }
+            return symbol;
+        }
+
+        public override Boolean Move()
+        {
+            if (this.Train != null && this.Next.Previous == this)
+            {
+                if(this.Next.Train == null)
+                {
+                    this.Next.Train = this.Train;
+                    this.Train = null;
+                }
+                else
+                {
+                    this.Train = null;
+                    this.Next.Train.Symbol = 'X';
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
