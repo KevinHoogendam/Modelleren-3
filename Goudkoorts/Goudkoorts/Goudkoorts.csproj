@@ -51,7 +51,7 @@
     <Compile Include="Models\BoatSpace.cs" />
     <Compile Include="Models\EndSpace.cs" />
     <Compile Include="Controllers\GameController.cs" />
-    <Compile Include="Controllers\GameInputController.cs" />
+    <Compile Include="Views\GameInputController.cs" />
     <Compile Include="Controllers\MusicController.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Program.cs" />

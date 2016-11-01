@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="5d8e16a6-ddda-4203-889a-27f828370aac" name="UMLClassDiagram1" linkedPackageId="f1d35c42-e1df-462b-9c3a-ec8cc429ed00" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="806cd5fa-5e9b-4fa1-8ead-ac70c650155f">
-      <profileInstance Id="b1341409-fb4d-4491-855e-cc69e10a4ec0" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="361a1d2d-2e44-4474-a354-2363c0798814">
-      <profileInstance Id="3b3d1048-1777-47e7-876c-53f9110400c3" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="5d8e16a6-ddda-4203-889a-27f828370aac" name="UMLClassDiagram1" linkedPackageId="f1d35c42-e1df-462b-9c3a-ec8cc429ed00" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasPackages>
       <package Id="d05e754e-5c6a-466f-92e1-88b9f4fa0d90" name="Domain">
@@ -33,6 +19,12 @@
           <packageHasNamedElement>
             <class Id="de0499ab-8438-48f5-a1c6-7ea0373f5ebc" name="BoatLoadingSpace" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="6e7af3d5-37d5-4766-99e7-288e5e6225aa" />
+              <suppliersInternal>
+                <interfaceRealization Id="925ec7f1-a107-4e2c-9506-b46241ccdf62">
+                  <interfaceMoniker Id="be6ec8a7-fb48-4f00-b2f2-c277fa32fb5d" LastKnownName="Space" />
+                  <elementDefinition Id="d6a3324b-ad3c-4339-b331-ecf35d2df495" />
+                </interfaceRealization>
+              </suppliersInternal>
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>
@@ -71,11 +63,23 @@
           <packageHasNamedElement>
             <class Id="8c6c31f1-77eb-4ea2-8765-ed3854423a64" name="EndSpace" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="05410a75-76fa-4c35-9b09-b21b55032e05" />
+              <suppliersInternal>
+                <interfaceRealization Id="c8b635c0-f280-4896-a2a8-6abaea643942">
+                  <interfaceMoniker Id="be6ec8a7-fb48-4f00-b2f2-c277fa32fb5d" LastKnownName="Space" />
+                  <elementDefinition Id="d2e2e194-80e7-47c9-83bf-a6b851f01dbc" />
+                </interfaceRealization>
+              </suppliersInternal>
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>
             <class Id="e395ef53-4948-4197-b856-cc6b6be1bf00" name="BoatSpace" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="6389371f-99e8-4789-84b8-5fdb7151318d" />
+              <suppliersInternal>
+                <interfaceRealization Id="f56e7704-1095-49d1-b38f-9134e596f055">
+                  <interfaceMoniker Id="be6ec8a7-fb48-4f00-b2f2-c277fa32fb5d" LastKnownName="Space" />
+                  <elementDefinition Id="7e22c4db-7d31-4e72-98af-8d2aa1cb5571" />
+                </interfaceRealization>
+              </suppliersInternal>
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>
@@ -92,6 +96,60 @@
           <packageHasNamedElement>
             <Interface Id="be6ec8a7-fb48-4f00-b2f2-c277fa32fb5d" name="Space" isAbstract="false" isLeaf="false">
               <elementDefinition Id="7cc0c298-6721-48b2-b182-60fc92276b9d" />
+              <targetEnds>
+                <association Id="74d66981-b045-4305-a2a8-72d591cc87e7" isDerived="false" sourceEndRoleName="Space" targetEndRoleName="Boat" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="ed7790be-6545-4c51-b19f-966f3a8142a5" LastKnownName="Boat" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="c79e9398-7d2c-412b-94ba-81a9141674a7" name="Space" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="9dbb571a-6b18-48d1-993e-f3f0350392d5" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="558d6cb7-8055-4869-9cbb-7fb4209cdd96" name="Boat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <lowerValueInternal>
+                          <literalString Id="6c81c7b0-43b5-42e7-8b8f-bb6ff026570a" name="Lower" value="0">
+                            <elementDefinition Id="fb7258a5-f131-44b1-870b-029582abef70" />
+                          </literalString>
+                        </lowerValueInternal>
+                        <upperValueInternal>
+                          <literalString Id="c446f639-b522-4875-ad87-466f136b779e" name="Upper" value="1">
+                            <elementDefinition Id="92d8aa36-0087-4793-b300-c9e5c6b9b1c7" />
+                          </literalString>
+                        </upperValueInternal>
+                        <elementDefinition Id="9f0dc3e1-f1a5-4351-a9f9-674d2bfbbcee" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="dd63b5d3-235c-433b-8567-71932a11ee98" />
+                </association>
+                <association Id="948dc852-9c9f-4071-a711-6ebc3b04be0f" isDerived="false" sourceEndRoleName="Space" targetEndRoleName="Train" isLeaf="false" isAbstract="false">
+                  <classMoniker Id="d84b94a9-d311-4202-ae78-ee33df12036b" LastKnownName="Train" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="792b1fa7-c18d-45bf-a559-bdc031f5ed2f" name="Space" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="a971ba7b-96fd-4932-8fc3-754aebe511c9" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="ce1b4fe6-5598-43d9-9ddd-f66583785461" name="Train" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <lowerValueInternal>
+                          <literalString Id="81d91f1e-b523-4cbb-bcc8-302d258ecc50" name="Lower" value="0">
+                            <elementDefinition Id="f973009a-8ee6-4b2e-a2c3-9df4d2734c81" />
+                          </literalString>
+                        </lowerValueInternal>
+                        <upperValueInternal>
+                          <literalString Id="c657b66d-d89a-4fe3-94ad-eae5deafcccf" name="Upper" value="1">
+                            <elementDefinition Id="77ee5535-609e-46c9-8ff8-0ed6eaa74fc6" />
+                          </literalString>
+                        </upperValueInternal>
+                        <elementDefinition Id="fb7b41df-7921-40f7-9563-5e00bcb353b7" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="63504c7b-9f0f-412f-928d-7033ea96a7fd" />
+                </association>
+              </targetEnds>
             </Interface>
           </packageHasNamedElement>
           <packageHasNamedElement>
@@ -130,6 +188,16 @@
                   <elementDefinition Id="4818a206-81e1-481d-bbf8-e4234430b268" />
                 </association>
               </targetEnds>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="ed7790be-6545-4c51-b19f-966f3a8142a5" name="Boat" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="22a605f1-293a-4eec-b5ed-39f632c6aa51" />
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="d84b94a9-d311-4202-ae78-ee33df12036b" name="Train" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <elementDefinition Id="a49c6b6c-6dad-482d-82dc-a1b76a638c1d" />
             </class>
           </packageHasNamedElement>
         </packagedElements>
@@ -342,5 +410,19 @@
   </packagedElements>
   <package Id="f1d35c42-e1df-462b-9c3a-ec8cc429ed00" name="ModelingGoudkoorts">
     <elementDefinition Id="52484e2c-1e58-4018-9ba9-8ad16213f1be" />
+    <profileInstances>
+      <packageHasProfileInstances Id="806cd5fa-5e9b-4fa1-8ead-ac70c650155f">
+        <profileInstance Id="b1341409-fb4d-4491-855e-cc69e10a4ec0" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="361a1d2d-2e44-4474-a354-2363c0798814">
+        <profileInstance Id="3b3d1048-1777-47e7-876c-53f9110400c3" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

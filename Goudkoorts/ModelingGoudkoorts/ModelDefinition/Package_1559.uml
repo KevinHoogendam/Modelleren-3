@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="8d2da095-2571-4bd1-a98f-8788b5faa64a"
   name="Domain" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -28,7 +28,17 @@
         name="BoatLoadingSpace"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="d6a3324b-ad3c-4339-b331-ecf35d2df495">
+            <interfaceMoniker
+              Id="7cc0c298-6721-48b2-b182-60fc92276b9d"
+              LastKnownName="Space"
+              LastKnownLocation="Package_1559.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -90,7 +100,17 @@
         name="EndSpace"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="d2e2e194-80e7-47c9-83bf-a6b851f01dbc">
+            <interfaceMoniker
+              Id="7cc0c298-6721-48b2-b182-60fc92276b9d"
+              LastKnownName="Space"
+              LastKnownLocation="Package_1559.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -98,7 +118,17 @@
         name="BoatSpace"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="7e22c4db-7d31-4e72-98af-8d2aa1cb5571">
+            <interfaceMoniker
+              Id="7cc0c298-6721-48b2-b182-60fc92276b9d"
+              LastKnownName="Space"
+              LastKnownLocation="Package_1559.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -123,7 +153,114 @@
         Id="7cc0c298-6721-48b2-b182-60fc92276b9d"
         name="Space"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="dd63b5d3-235c-433b-8567-71932a11ee98"
+            isDerived="false"
+            sourceEndRoleName="Space"
+            targetEndRoleName="Boat"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="22a605f1-293a-4eec-b5ed-39f632c6aa51"
+              LastKnownName="Boat"
+              LastKnownLocation="Package_1559.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9dbb571a-6b18-48d1-993e-f3f0350392d5"
+                  name="Space"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9f0dc3e1-f1a5-4351-a9f9-674d2bfbbcee"
+                  name="Boat"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="fb7258a5-f131-44b1-870b-029582abef70"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="92d8aa36-0087-4793-b300-c9e5c6b9b1c7"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="63504c7b-9f0f-412f-928d-7033ea96a7fd"
+            isDerived="false"
+            sourceEndRoleName="Space"
+            targetEndRoleName="Train"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a49c6b6c-6dad-482d-82dc-a1b76a638c1d"
+              LastKnownName="Train"
+              LastKnownLocation="Package_1559.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a971ba7b-96fd-4932-8fc3-754aebe511c9"
+                  name="Space"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fb7b41df-7921-40f7-9563-5e00bcb353b7"
+                  name="Train"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="f973009a-8ee6-4b2e-a2c3-9df4d2734c81"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="77ee5535-609e-46c9-8ff8-0ed6eaa74fc6"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </Interface>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -195,6 +332,22 @@
           </association>
         </targetEnds>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="22a605f1-293a-4eec-b5ed-39f632c6aa51"
+        name="Boat"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a49c6b6c-6dad-482d-82dc-a1b76a638c1d"
+        name="Train"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

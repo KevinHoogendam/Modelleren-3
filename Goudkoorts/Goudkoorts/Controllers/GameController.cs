@@ -79,6 +79,7 @@ namespace Goudkoorts.Controllers
                 {
                     Console.Clear();
                     BoardView.DrawBoard(BoardController.Board);
+                    BoardView.DrawScore(Player.Score);
                 }
             }
         }
@@ -91,25 +92,24 @@ namespace Goudkoorts.Controllers
 
         private void RunThread()
         {
-            int counter = 10;
+            int counter = 50;
             while (!gameOver)
             {
                 Board board = BoardController.Board;
                 BoatController.MoveBoats(board);
                 TrainController.MoveTrains(board);
                 gameOver = TrainController.TrainHasCrashed;
-                if (counter % 10 - (Player.Score / 10) == 0)
+                if (counter % (10 - (Player.Score / 8)) == 0)
                 {
                     TrainController.GenerateNewTrain(board);
                 }
-                if (counter % 20 == 0)
+                if (counter % 50 == 0)
                 {
                     BoatController.GenerateNewBoat(board);
                 }
                 CalculatePoints(board);
                 BoardView.DrawBoard(board);
-
-                Console.WriteLine("Score: " + Player.Score);
+                BoardView.DrawScore(Player.Score);
 
                 if (!gameOver)
                 {
@@ -117,12 +117,13 @@ namespace Goudkoorts.Controllers
                     counter++;
                 }
             }
+            BoardView.DrawGameOver();
             thread.Abort();
         }
 
         private void Countdown()
         {
-            int timer = 4000 - (Player.Score * 20);
+            int timer = 2000 - (Player.Score * 40);
             Thread.Sleep(timer);
         }
 

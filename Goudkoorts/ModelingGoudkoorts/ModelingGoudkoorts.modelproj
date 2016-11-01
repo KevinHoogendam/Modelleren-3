@@ -22,12 +22,19 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
-    <Content Include="GoudkoortsSequenceDiagram.sequencediagram">
+    <Content Include="AutomaticCycle.sequencediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="GoudkoortsSequenceDiagram.sequencediagram.layout">
+    <Content Include="AutomaticCycle.sequencediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>GoudkoortsSequenceDiagram.sequencediagram</DependentUpon>
+      <DependentUpon>AutomaticCycle.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="CreateBoard.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CreateBoard.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>CreateBoard.sequencediagram</DependentUpon>
     </Content>
     <Content Include="ModelDefinition\Package1_1559.uml">
       <SubType>Content</SubType>
@@ -44,6 +51,20 @@
     <Content Include="GoudkoortsClassDiagram.classdiagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>GoudkoortsClassDiagram.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Move.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Move.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Move.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="StartGame&amp;UserInput.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StartGame&amp;UserInput.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>StartGame&amp;UserInput.sequencediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\ModelingGoudkoorts.uml">

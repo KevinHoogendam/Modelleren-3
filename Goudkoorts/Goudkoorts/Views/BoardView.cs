@@ -238,5 +238,14 @@ namespace Goudkoorts.Views
             }
             Console.WriteLine("");
         }
+        public void DrawScore(int score)
+        {
+            Console.WriteLine("Score: " + score);
+        }
+
+        public void DrawGameOver()
+        {
+            Console.WriteLine("Game Over!");
+        }
     }
 }
